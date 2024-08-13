@@ -28,8 +28,7 @@ export default {
       },
     },
     fontFamily: {
-      sans: ["Graphik", "sans-serif"],
-      serif: ["Merriweather", "serif"],
+      sans: ["Raleway", "sans-serif"],
     },
     extend: {
       fontFamily: {
@@ -38,6 +37,33 @@ export default {
       },
       backgroundImage: {
         "main-bg": "url('./assets/images/deep-bg.jpg')",
+      },
+      keyframes: {
+        rotate: {
+          "0%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(45deg)" },
+          "50%": { transform: "rotate(90deg)" },
+          "75%": { transform: "rotate(135deg)" },
+          "100%": { transform: "rotate(180deg)" },
+        },
+        squizz: {
+          "0%": { transform: "scaleY(1)", opacity: "1" },
+          "100%": { transform: "scaleY(0)", opacity: "0" },
+        },
+        "appear-x": {
+          "0%": { transform: "translateX(-50%) scaleX(0)", opacity: "0" },
+          "100%": { transform: "translateX(0) scaleX(1)", opacity: "1" },
+        },
+        "appear-y": {
+          "0%": { transform: "scaleY(0)", opacity: "0" },
+          "100%": { transform: "scaleY(1)", opacity: "1" },
+        },
+      },
+      animation: {
+        rotation: "rotate 0.3s ease-in-out",
+        squizz: "squizz 0.2s ease-in-out forwards",
+        "appearance-x": "appear-x 0.3s ease-in-out 0.1s forwards",
+        "appearance-y": "appear-y 0.3s ease-in-out forwards",
       },
     },
   },
