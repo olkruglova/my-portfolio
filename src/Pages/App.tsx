@@ -2,6 +2,7 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import Toolbar from "../Components/Toolbar";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 function App() {
   return (
@@ -53,7 +54,7 @@ function MainContent() {
       <div className="bg-main-bg bg-cover bg-no-repeat w-full h-[calc(100vh+1000px)] overflow-x-hidden"></div>
       <div
         ref={overlayRef}
-        className="bg-dark-blue-500 absolute top-0 left-0 w-full h-full pointer-events-auto"
+        className="bg-dark-blue-500 absolute top-0 left-0 w-full h-[calc(100vh+1000px)] pointer-events-auto"
         style={{
           background: isHovered
             ? `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 200px, rgba(0,0,0,0.95) 200px)`
@@ -84,6 +85,7 @@ function MainContent() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

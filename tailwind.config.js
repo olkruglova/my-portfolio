@@ -88,6 +88,9 @@ export default {
         "reverse-appearance-x": "reverse-appear-x 0.2s ease-in-out forwards",
         "reverse-appearance-y": "reverse-appear-y 0.2s ease-in-out forwards",
       },
+      boxShadow: {
+        top: "0 -25px 50px -12px rgb(0 0 0 / 0.25);",
+      },
     },
   },
   plugins: [],
