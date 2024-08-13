@@ -1,7 +1,19 @@
-import { useState, useRef, useEffect } from "react";
-import Content from "./Content";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import Toolbar from "../Components/Toolbar";
+import Navbar from "../Components/Navbar";
 
 function App() {
+  return (
+    <Router>
+      <MainContent />
+    </Router>
+  );
+}
+
+const Profile = lazy(() => import("./Profile"));
+
+function MainContent() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -17,16 +29,21 @@ function App() {
       }
     };
 
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => setIsHovered(false);
+
     const overlay = overlayRef.current;
-    overlay?.addEventListener("mousemove", handleMouseMove);
-    overlay?.addEventListener("mouseenter", () => setIsHovered(true));
-    overlay?.addEventListener("mouseleave", () => setIsHovered(false));
+    if (overlay) {
+      overlay.addEventListener("mousemove", handleMouseMove);
+      overlay.addEventListener("mouseenter", handleMouseEnter);
+      overlay.addEventListener("mouseleave", handleMouseLeave);
+    }
 
     return () => {
       if (overlay) {
         overlay.removeEventListener("mousemove", handleMouseMove);
-        overlay.removeEventListener("mouseenter", () => setIsHovered(true));
-        overlay.removeEventListener("mouseleave", () => setIsHovered(false));
+        overlay.removeEventListener("mouseenter", handleMouseEnter);
+        overlay.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
   }, []);
@@ -43,7 +60,29 @@ function App() {
             : "rgba(0,0,0,0.95)",
         }}
       >
-        <Content />
+        <div className="flex flex-row px-24 py-20">
+          <div className="flex-[20%] flex justify-start">
+            <Navbar />
+          </div>
+          <div className="flex-[80%] flex justify-end">
+            <div className="flex flex-col">
+              <Toolbar />
+
+              <Suspense fallback={<div>Loading...</div>}>
+                <Routes>
+                  <Route path="/" Component={Profile} />
+                  {/* <Route path="/guides" element={<Guides />}>
+                <Route path="shadows/:shadowType" Component={Shadows} />
+                <Route path="text" Component={Text} />
+                <Route path="animations/:animationType" Component={Animations} />
+                </Route>
+                <Route path="/about" element={<About />} />
+                <Route path="/articles" element={<Articles />} /> */}
+                </Routes>
+              </Suspense>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
