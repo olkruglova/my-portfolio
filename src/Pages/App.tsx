@@ -61,12 +61,12 @@ function MainContent() {
             : "rgba(0,0,0,0.95)",
         }}
       >
-        <div className="flex flex-row px-24 py-20">
+        <div className="flex flex-row px-40 py-20">
           <div className="flex-[20%] flex justify-start">
             <Navbar />
           </div>
           <div className="flex-[80%] flex justify-end">
-            <div className="flex flex-col">
+            <div className="flex flex-col w-[calc(100%-1px)]">
               <Toolbar />
 
               <Suspense fallback={<div>Loading...</div>}>
