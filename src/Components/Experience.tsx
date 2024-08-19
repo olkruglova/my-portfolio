@@ -35,24 +35,25 @@ function Experience() {
       animationReverse: true,
       content: [
         {
-          year: 2020,
+          year: 2021,
           title: "Frontend Developer",
-          description: "I started my journey as a frontend developer",
+          description:
+            "Angular14, RxJS, Typescript, PrimeNG, KendoUI, \n D3.js, Bootstrap, RWD, SCSS",
+        },
+        {
+          year: 2019,
+          title: "Junior Frontend Developer",
+          description: "React, Typescript, MaterialUI, RWD, SCSS",
+        },
+        {
+          year: 2019,
+          title: "Frontend Developer - Intern",
+          description: "Angular2, Typescript, ES6, D3.js, RWD, SCSS",
         },
         {
           year: 2018,
-          title: "Frontend Developer",
-          description: "I started my journey as a frontend developer",
-        },
-        {
-          year: 2018,
-          title: "Frontend Developer",
-          description: "I started my journey as a frontend developer",
-        },
-        {
-          year: 2018,
-          title: "Frontend Developer",
-          description: "I started my journey as a frontend developer",
+          title: "Graphic Designer",
+          description: "Adobe Photoshop, InkScape",
         },
       ],
     },
