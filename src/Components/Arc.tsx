@@ -44,7 +44,7 @@ function Arc({ options }: { options: ArcOptions }) {
     }
   }, [size, content]);
 
-  const angles = [-45, -15, 15, 45];
+  const angles = [-45, -10, 10, 45];
   const length = 50;
   const circleRadius = 30;
   const rectWidth = 400;
@@ -67,18 +67,6 @@ function Arc({ options }: { options: ArcOptions }) {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          {size === "sm" ? (
-            <text
-              x="20"
-              y="180"
-              fill="#A9D6E5"
-              textAnchor="middle"
-              alignmentBaseline="middle"
-              className="text-lg"
-            >
-              Experience
-            </text>
-          ) : null}
           {animation ? (
             <animate
               attributeName="stroke-dashoffset"
@@ -101,50 +89,108 @@ function Arc({ options }: { options: ArcOptions }) {
           ) : null}
         </path>
 
+        {size === "sm" ? (
+          <text
+            x="-267"
+            y="10"
+            fill="white"
+            textAnchor="middle"
+            alignmentBaseline="middle"
+            className="text-lg"
+            style={{ transform: "rotate(-90deg)" }}
+          >
+            Experience
+          </text>
+        ) : null}
+
+        <defs>
+          <filter id="drop-shadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+            <feOffset dx="0" dy="0" result="offsetblur" />
+            <feFlood
+              floodColor={hoveredIndex !== null ? "#A9D6E5" : "#61A5C2"}
+            />
+            <feComposite in2="offsetblur" operator="in" />
+            <feMerge>
+              <feMergeNode />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
         {circlePositions.map((item, index) => {
           const angleRad = (angles[index] * Math.PI) / 180;
           const x2 = item.cx + length * Math.cos(angleRad);
           const y2 = item.cy + length * Math.sin(angleRad);
           const circleX = x2 + circleRadius * Math.cos(angleRad);
           const circleY = y2 + circleRadius * Math.sin(angleRad);
+          const height = index === 0 ? rectHeight + 10 : rectHeight;
           const rectX = circleX + circleRadius * 2 * Math.cos(angleRad);
-          const rectY = circleY - rectHeight / 2;
+          const rectY = circleY - height / 2;
+          const hovered = hoveredIndex === index;
+          const shadowColor = hovered ? "#A9D6E5" : "#61A5C2";
+
+          const hitAreaPadding = 10;
+          const hitAreaX = Math.min(item.cx, rectX) - hitAreaPadding;
+          const hitAreaY = Math.min(item.cy, rectY) - hitAreaPadding;
+          const hitAreaWidth =
+            Math.max(rectX + rectWidth, circleX + circleRadius) -
+            hitAreaX +
+            hitAreaPadding;
+          const hitAreaHeight =
+            Math.max(rectY + height, circleY + circleRadius) -
+            hitAreaY +
+            hitAreaPadding;
 
           return (
             <g
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              style={{ cursor: "pointer" }}
-              transform={`scale(${hoveredIndex === index ? 1.1 : 1})`}
-              transform-origin={`${item.cx}px ${item.cy}px`} // Ensures scaling is done relative to the circle's center
+              style={{
+                cursor: "pointer",
+                transition: "transform 0.3s ease-in-out",
+              }}
+              transform={`scale(${hovered ? 1.1 : 1})`}
+              transform-origin={`${item.cx}px ${item.cy}px`}
             >
+              <rect
+                x={hitAreaX}
+                y={hitAreaY}
+                width={hitAreaWidth}
+                height={hitAreaHeight}
+                fill="transparent"
+              />
+
               <line
                 x1={item.cx}
                 y1={item.cy}
                 x2={x2}
                 y2={y2}
-                strokeWidth={hoveredIndex === index ? "2" : "1"}
-                stroke={hoveredIndex === index ? "#A9D6E5" : "white"}
+                strokeWidth="1"
+                stroke={shadowColor}
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 fill="none"
+                filter={hovered ? "url(#drop-shadow)" : "none"}
               />
               <circle
                 cx={item.cx}
                 cy={item.cy}
                 r="4"
-                strokeWidth={hoveredIndex === index ? "2" : "1"}
-                stroke={hoveredIndex === index ? "#A9D6E5" : "#61A5C2"}
+                strokeWidth="1"
+                stroke={shadowColor}
                 fill="#012A4A"
+                filter={hovered ? "url(#drop-shadow)" : "none"}
               />
               <circle
                 cx={circleX}
                 cy={circleY}
                 r={circleRadius}
-                strokeWidth={hoveredIndex === index ? "2" : "1"}
-                stroke={hoveredIndex === index ? "#A9D6E5" : "#61A5C2"}
+                strokeWidth="1"
+                stroke={shadowColor}
                 fill="#012A4A"
+                filter={hovered ? "url(#drop-shadow)" : "none"}
               />
               <text
                 x={circleX}
@@ -152,28 +198,26 @@ function Arc({ options }: { options: ArcOptions }) {
                 fill="#A9D6E5"
                 textAnchor="middle"
                 alignmentBaseline="middle"
-                className={`text-lg ${
-                  hoveredIndex === index ? "font-bold " : null
-                }`}
+                className={`text-lg ${hovered ? "font-bold" : null}`}
               >
                 {item.content?.year}
               </text>
-
               <rect
                 x={rectX}
                 y={rectY}
                 width={rectWidth}
-                height={rectHeight}
+                height={height}
                 rx={rectRadius}
                 ry={rectRadius}
                 fill="transparent"
-                stroke={hoveredIndex === index ? "#A9D6E5" : "#61A5C2"}
-                strokeWidth={hoveredIndex === index ? "2" : "1"}
+                stroke={shadowColor}
+                strokeWidth="1"
+                filter={hovered ? "url(#drop-shadow)" : "none"}
               />
               <text
                 x={rectX + rectWidth / 2}
                 y={rectY + 25}
-                fill={hoveredIndex === index ? "#A9D6E5" : "#61A5C2"}
+                fill={shadowColor}
                 fontWeight="bold"
                 textAnchor="middle"
                 className="text-lg"
@@ -183,11 +227,19 @@ function Arc({ options }: { options: ArcOptions }) {
               <text
                 x={rectX + rectWidth / 2}
                 y={rectY + 55}
-                fill={hoveredIndex === index ? "#A9D6E5" : "#61A5C2"}
+                fill={shadowColor}
                 textAnchor="middle"
                 className="text-base"
               >
-                {item.content?.description}
+                {item.content?.description.split("\n").map((line, index) => (
+                  <tspan
+                    x={rectX + rectWidth / 2}
+                    dy={index === 0 ? "0em" : "1.2em"}
+                    key={index}
+                  >
+                    {line}
+                  </tspan>
+                ))}
               </text>
             </g>
           );
