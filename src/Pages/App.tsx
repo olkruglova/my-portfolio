@@ -13,6 +13,7 @@ function App() {
 }
 
 const Profile = lazy(() => import("./Profile"));
+const Projects = lazy(() => import("./Projects"));
 
 function MainContent() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -62,7 +63,7 @@ function MainContent() {
         }}
       >
         <div className="flex flex-row px-40 py-20">
-          <div className="flex-[20%] flex justify-start">
+          <div className="flex-[20%] min-w-[173px] flex justify-start">
             <Navbar />
           </div>
           <div className="flex-[80%] flex justify-end">
@@ -72,6 +73,7 @@ function MainContent() {
               <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                   <Route path="/" Component={Profile} />
+                  <Route path="/projects" Component={Projects} />
                   {/* <Route path="/guides" element={<Guides />}>
                 <Route path="shadows/:shadowType" Component={Shadows} />
                 <Route path="text" Component={Text} />

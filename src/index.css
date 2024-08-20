@@ -8,3 +8,53 @@
     user-select: none;
   }
 }
+
+@layer components {
+  .border-gradient {
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+      140deg,
+      theme("colors.light-blue.DEFAULT"),
+      theme("colors.dark-blue.400") 30%,
+      theme("colors.transparent") 50%
+    );
+    border-image-slice: 1;
+    border-radius: 10px;
+  }
+
+  .border-gradient-revert {
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+      315deg,
+      theme("colors.light-blue.DEFAULT"),
+      theme("colors.dark-blue.400") 30%,
+      theme("colors.transparent") 50%
+    );
+    border-image-slice: 1;
+    border-radius: 10px;
+  }
+
+  .flip-box {
+    perspective: 1000px;
+  }
+
+  .flip-box-inner {
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-box-front,
+  .flip-box-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .flip-box-back {
+    transform: rotateY(180deg);
+  }
+}
