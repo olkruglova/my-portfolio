@@ -37,6 +37,8 @@ export default {
       },
       backgroundImage: {
         "main-bg": "url('./assets/images/deep-bg.jpg')",
+        "pixel-art-bg": "url('./assets/images/pixel_art.png')",
+        "matching-game-bg": "url('./assets/images/matching_game.png')",
       },
       keyframes: {
         "squizz-y": {

@@ -1,7 +1,7 @@
 import Experience from "../Components/Experience";
 
 function Profile() {
-  const yearsAgo = new Date().getFullYear() - 2018;
+  const yearsAgo = new Date().getFullYear() - 2017;
 
   return (
     <>
@@ -24,6 +24,16 @@ function Profile() {
             I work and collaborate with talented people to create digital
             products and{" "}
             <strong className="text-light-blue mb-2">I love what I do.</strong>
+          </p>
+          <p className="mt-8">
+            Check out my previous profile
+            <a
+              href="https://olkruglova.github.io/portfolio-fend"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong className="text-light-blue mb-2">&nbsp;here.</strong>
+            </a>
           </p>
         </div>
       </div>
