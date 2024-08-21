@@ -13,7 +13,7 @@
   .border-gradient {
     border: 1px solid transparent;
     border-image: linear-gradient(
-      140deg,
+      150deg,
       theme("colors.light-blue.DEFAULT"),
       theme("colors.dark-blue.400") 30%,
       theme("colors.transparent") 50%
@@ -25,7 +25,7 @@
   .border-gradient-revert {
     border: 1px solid transparent;
     border-image: linear-gradient(
-      315deg,
+      330deg,
       theme("colors.light-blue.DEFAULT"),
       theme("colors.dark-blue.400") 30%,
       theme("colors.transparent") 50%

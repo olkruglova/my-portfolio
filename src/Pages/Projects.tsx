@@ -9,6 +9,7 @@ function Projects() {
       description:
         "The Pixel Art Maker is a creative tool that allows users to design and create their own pixel art. Users can select colors from a palette and fill in the grid to form images, patterns, or characters. Try to draw something beautiful with this pixel art maker.",
       url: "https://olkruglova.github.io/canvas-pixel-art/",
+      codeURL: "https://github.com/olkruglova/canvas-pixel-art",
       background: "./src/assets/images/pixel_art.png",
       tags: ["Javascript", "CSS"],
     },
@@ -17,6 +18,7 @@ function Projects() {
       description:
         "The Matching Game is an interactive puzzle where players test their memory by flipping over cards to find pairs. Each card features an image, and the goal is to match all the pairs as quickly as possible. The game sharpens memory, concentration, and pattern recognition skills, making it a fun and challenging activity for all ages.",
       url: "https://olkruglova.github.io/my-memory-game-2/",
+      codeURL: "https://github.com/olkruglova/my-memory-game-2",
       background: "./src/assets/images/matching_game.png",
       tags: ["Javascript", "CSS"],
     },
