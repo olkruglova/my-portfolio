@@ -1,5 +1,3 @@
-// import pixelAltMaker from "src/assets/images/pixel_art.png";
-
 import ProjectCard from "../Components/ProjectCard";
 
 function Projects() {

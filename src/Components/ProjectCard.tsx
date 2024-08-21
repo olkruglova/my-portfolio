@@ -52,7 +52,7 @@ function ProjectCard({ project, index }: any) {
           {tags.map((tag: string, index: number) => (
             <p
               key={`${index}-${tag}`}
-              className="text-xs text-light-blue-400 bg-transparent border border-light-blue-400 rounded-2xl px-1 mr-2"
+              className="text-xs text-light-blue-400 bg-transparent bg-dark-blue-400 bg-opacity-50 rounded-2xl py-px px-3 mr-2"
             >
               {tag}
             </p>
