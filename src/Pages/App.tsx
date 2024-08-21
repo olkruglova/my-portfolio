@@ -15,6 +15,7 @@ function App() {
 
 const Profile = lazy(() => import("./Profile"));
 const Projects = lazy(() => import("./Projects"));
+const Resume = lazy(() => import("./Resume"));
 
 function MainContent() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -75,13 +76,7 @@ function MainContent() {
                 <Routes>
                   <Route path="/" Component={Profile} />
                   <Route path="/projects" Component={Projects} />
-                  {/* <Route path="/guides" element={<Guides />}>
-                <Route path="shadows/:shadowType" Component={Shadows} />
-                <Route path="text" Component={Text} />
-                <Route path="animations/:animationType" Component={Animations} />
-                </Route>
-                <Route path="/about" element={<About />} />
-                <Route path="/articles" element={<Articles />} /> */}
+                  <Route path="/resume" Component={Resume} />
                 </Routes>
               </Suspense>
             </div>
