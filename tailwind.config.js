@@ -10,6 +10,7 @@ export default {
       white: colors.white,
       black: colors.black,
       gray: colors.gray,
+      dark: "#000d17",
       "dark-blue": {
         100: "#2A6F97",
         200: "#014F86",

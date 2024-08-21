@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import Toolbar from "../Components/Toolbar";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import Socials from "../Components/Socials";
 
 function App() {
   return (
@@ -86,6 +87,7 @@ function MainContent() {
             </div>
           </div>
         </div>
+        <Socials />
       </div>
       <Footer />
     </div>
