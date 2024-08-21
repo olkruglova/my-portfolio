@@ -211,7 +211,7 @@ function Arc({ options }: { options: ArcOptions }) {
                 ry={rectRadius}
                 fill="transparent"
                 stroke={shadowColor}
-                strokeWidth="1"
+                strokeWidth="0.5"
                 filter={hovered ? "url(#drop-shadow)" : "none"}
               />
               <text
