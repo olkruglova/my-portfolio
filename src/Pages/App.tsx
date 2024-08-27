@@ -54,10 +54,10 @@ function MainContent() {
 
   return (
     <div className="relative">
-      <div className="bg-main-bg bg-cover bg-no-repeat w-full h-[calc(100vh+1000px)] overflow-x-hidden"></div>
+      <div className="bg-main-bg bg-cover bg-no-repeat w-full h-[calc(100vh+700px)] overflow-x-hidden"></div>
       <div
         ref={overlayRef}
-        className="bg-dark-blue-500 absolute top-0 left-0 w-full h-[calc(100vh+1000px)] pointer-events-auto"
+        className="bg-dark-blue-500 absolute top-0 left-0 w-full h-[calc(100vh+700px)] pointer-events-auto"
         style={{
           background: isHovered
             ? `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 200px, rgba(0,0,0,0.95) 200px)`

@@ -1,13 +1,5 @@
-import {
-  ArrowDownTrayIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-  MapPinIcon,
-  ChartPieIcon,
-  DocumentIcon,
-  CheckBadgeIcon,
-  CheckIcon,
-} from "@heroicons/react/24/solid";
+import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
+import JobCard from "../Components/JobCard";
 
 function Resume() {
   const today = new Date();
@@ -15,7 +7,7 @@ function Resume() {
 
   const jobs = [
     {
-      jobTitle: "Softwere Developer",
+      jobTitle: "Frontend software engineer",
       clientLocation: "England",
       sector: "Aerospace",
       description: `Integrated Lifing is a platform for engines fleets monitoring. Supports engine 
@@ -121,76 +113,7 @@ function Resume() {
 
         <div className="w-full mt-20 relative">
           {jobs.map((job, index) => {
-            const isEven = index % 2 === 0;
-
-            return (
-              <div key={index}>
-                <div className={`flex flex-col w-full`}>
-                  <div className={`p-10 text-white border-gradient`}>
-                    <div className="flex flex-row items-center">
-                      <div className="basis-11/12">
-                        <h2 className="text-2xl font-semibold text-light-blue">
-                          {job.jobTitle}
-                        </h2>
-                        <div className="flex flex-col mt-4">
-                          <div className="text-sm">
-                            <strong className="text-light-blue">Sector:</strong>{" "}
-                            {job.sector}
-                          </div>
-                          <div className="text-sm mt-2">
-                            <strong className="text-light-blue">
-                              Description:
-                            </strong>{" "}
-                            {job.description}
-                          </div>
-                          <div className="flex flex-row justify-start mt-2">
-                            <details className="w-[30rem] mr-8 group">
-                              <summary className="flex flex-row cursor-pointer text-sm text-blue-600 items-center">
-                                <span className="transition-transform duration-300 ease-in-out group-open:rotate-90">
-                                  <ChevronRightIcon className="w-5 h-5 text-light-blue" />
-                                </span>
-                                <span className="ml-2">
-                                  <strong className="text-light-blue">
-                                    Responsibilities
-                                  </strong>
-                                </span>
-                              </summary>
-                              <ul className="ml-2 text-sm text-white list-disc list-inside mt-2 max-h-0 overflow-hidden transition-max-height duration-500 ease-in-out group-open:max-h-[1000px]">
-                                {job.responsibilities.map(
-                                  (responsibility, idx) => (
-                                    <li key={idx}>{responsibility}</li>
-                                  )
-                                )}
-                              </ul>
-                            </details>
-                            <details className="group">
-                              <summary className="cursor-pointer text-sm text-blue-600 flex items-center">
-                                <span className="transition-transform duration-300 ease-in-out group-open:rotate-90">
-                                  <ChevronRightIcon className="w-5 h-5 text-light-blue" />
-                                </span>
-                                <span className="ml-2">
-                                  <strong className="text-light-blue">
-                                    Tools & Technologies
-                                  </strong>
-                                </span>
-                              </summary>
-                              <ul className="ml-2 text-sm text-white min-h-1 h-auto list-disc list-inside mt-2 animate-appearance-y opacity-0 ">
-                                {job.tools.map((tool, idx) => (
-                                  <li key={idx}>{tool}</li>
-                                ))}
-                              </ul>
-                            </details>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="basis-1/12 flex flex-row justify-center items-center px-4 py-2 w-40 origin-center -rotate-90 translate-y-6 bg-gradient-to-l from-transparent via-dark-blue to-transparent">
-                        <p className="text-xl whitespace-nowrap">{job.years}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
+            return <JobCard key={index} job={job} index={index} />;
           })}
         </div>
       </div>

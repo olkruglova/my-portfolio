@@ -27,6 +27,14 @@ export default {
         500: "#2C7DA0",
         DEFAULT: "#89C2D9",
       },
+      salmon: {
+        100: "#ff8e8e",
+        200: "#ff7878",
+        300: "#ff6d6d",
+        400: "#ff5f5f",
+        500: "#ff4e4e",
+        DEFAULT: "#ff7878",
+      },
     },
     fontFamily: {
       sans: ["Raleway", "sans-serif"],

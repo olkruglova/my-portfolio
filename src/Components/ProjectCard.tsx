@@ -1,9 +1,11 @@
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { useState } from "react";
 
 function ProjectCard({ project, index }: any) {
   const { title, description, url, tags, background, codeURL } = project;
+  const [isOnHover, setIsOnHover] = useState<boolean>(false);
   const isEven = index % 2 === 0;
 
   return (
@@ -11,13 +13,19 @@ function ProjectCard({ project, index }: any) {
       className={`flex flex-row flex-wrap w-full mb-40 ${
         isEven ? "" : "flex-row-reverse"
       }`}
+      onMouseEnter={() => setIsOnHover(true)}
+      onMouseLeave={() => setIsOnHover(false)}
     >
       <div
-        className={`basis-1/2 h-80 py-10 ${
+        className={`basis-1/2 h-80 py-10 duration-300 ease-in-out ${
           isEven
-            ? "border-gradient pl-10 pr-5"
+            ? isOnHover
+              ? "border-gradient-salmon pl-10 pr-5"
+              : "border-gradient pl-10 pr-5"
+            : isOnHover
+            ? "border-gradient-salmon-revert pl-5 pr-10"
             : "border-gradient-revert pl-5 pr-10"
-        }`}
+        } `}
       >
         <div className="w-full h-full flip-box bg-transparent">
           <div className="relative w-full h-full flip-box-inner cursor-pointer">
@@ -41,9 +49,13 @@ function ProjectCard({ project, index }: any) {
       </div>
 
       <div
-        className={`basis-1/2 h-80 py-10 ${
+        className={`basis-1/2 h-80 py-10 duration-300 ease-in-out ${
           isEven
-            ? "border-gradient-revert pl-5 pr-10"
+            ? isOnHover
+              ? "border-gradient-salmon-revert pl-5 pr-10"
+              : "border-gradient-revert pl-5 pr-10"
+            : isOnHover
+            ? "border-gradient-salmon pl-10 pr-5"
             : "border-gradient pl-10 pr-5"
         }`}
       >
@@ -52,7 +64,7 @@ function ProjectCard({ project, index }: any) {
           {tags.map((tag: string, index: number) => (
             <p
               key={`${index}-${tag}`}
-              className="text-xs text-light-blue-400 bg-transparent bg-dark-blue-400 bg-opacity-50 rounded-2xl py-px px-3 mr-2"
+              className="text-xs text-light-blue-400 bg-transparent-30 bg-dark-blue-400 bg-opacity-50 rounded-2xl py-px px-3 mr-2"
             >
               {tag}
             </p>
