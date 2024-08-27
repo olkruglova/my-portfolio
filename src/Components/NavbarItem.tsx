@@ -13,18 +13,16 @@ function NavbarItem({ item }: any) {
       <NavLink to={url || "/"}>
         {({ isActive }) => (
           <div
-            className={`flex flex-row items-center hover:text-light-blue mb-3 cursor-pointer ${
-              isActive ? "text-light-blue" : "text-light-blue-500"
+            className={`flex flex-row items-center  mb-3 cursor-pointer ${
+              isActive
+                ? "text-salmon-100 hover:text-salmon-100"
+                : "text-light-blue-500 hover:text-light-blue"
             }`}
           >
             {isActive ? (
               <div className="flex flex-row items-center">
-                <div className="bg-gradient-to-b from-light-blue to-transparent rounded-lg w-px h-16 animate-squizz-y"></div>
-                <div className="bg-gradient-to-r from-light-blue rounded-lg w-0 h-px opacity-0 animate-appearance-x"></div>
-                {/* You can uncomment these lines for additional elements */}
-                {/* <div className="bg-light-blue rounded-full w-1.5 h-0.5 opacity-0 animate-appearance-x ml-2"></div>
-                    <div className="bg-light-blue rounded-full w-1 h-0.5 opacity-0 animate-appearance-x ml-2"></div>
-                    <div className="bg-light-blue rounded-full w-0.5 h-0.5 opacity-0 animate-appearance-x ml-2"></div> */}
+                <div className="bg-salmon-100 rounded-lg w-px h-16 animate-squizz-y"></div>
+                <div className="bg-salmon-100 rounded-lg w-0 h-px opacity-0 animate-appearance-x"></div>
               </div>
             ) : (
               <div className="flex flex-row items-center">

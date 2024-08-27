@@ -15,8 +15,8 @@
     border-image: linear-gradient(
       150deg,
       theme("colors.light-blue.DEFAULT"),
-      theme("colors.dark-blue.400") 30%,
-      theme("colors.transparent") 50%
+      theme("colors.dark-blue.400") 20%,
+      theme("colors.transparent") 40%
     );
     border-image-slice: 1;
     border-radius: 10px;
@@ -27,8 +27,32 @@
     border-image: linear-gradient(
       330deg,
       theme("colors.light-blue.DEFAULT"),
-      theme("colors.dark-blue.400") 30%,
-      theme("colors.transparent") 50%
+      theme("colors.dark-blue.400") 20%,
+      theme("colors.transparent") 40%
+    );
+    border-image-slice: 1;
+    border-radius: 10px;
+  }
+
+  .border-gradient-salmon {
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+      150deg,
+      theme("colors.salmon.100"),
+      theme("colors.salmon.500") 20%,
+      theme("colors.transparent") 40%
+    );
+    border-image-slice: 1;
+    border-radius: 10px;
+  }
+
+  .border-gradient-salmon-revert {
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+      330deg,
+      theme("colors.salmon.100"),
+      theme("colors.salmon.500") 20%,
+      theme("colors.transparent") 40%
     );
     border-image-slice: 1;
     border-radius: 10px;
