@@ -1,9 +1,13 @@
-import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
+import { ArrowDownTrayIcon, EyeIcon } from "@heroicons/react/24/solid";
 import JobCard from "../Components/JobCard";
+import { useState } from "react";
+import Tooltip from "../Components/Tooltip";
 
 function Resume() {
   const today = new Date();
   const thisYear = today.getFullYear();
+  const [isEyeHovered, setIsEyeHovered] = useState(false);
+  const [isDownloadHovered, setIsDownloadHovered] = useState(false);
 
   const jobs = [
     {
@@ -26,7 +30,7 @@ function Resume() {
         `Troubleshooting and resolving front-end issues`,
         `Integrating third-party APIs and services when necessary`,
         `Effective communication and collaboration with UX designers; reading and implementing 
-      Figma mocks`,
+      Figma mocks`
       ],
       tools: [
         "Angular14+",
@@ -40,8 +44,8 @@ function Resume() {
         "ES6",
         "SCSS",
         "Jasmine",
-        "Karma",
-      ],
+        "Karma"
+      ]
     },
     {
       jobTitle: "Frontend developer",
@@ -62,9 +66,9 @@ function Resume() {
         `Maintaining close cooperation with the Backend team to integrate front-end and back-end 
       functionalities`,
         `Crafting comprehensive unit tests`,
-        `Participating in code reviews`,
+        `Participating in code reviews`
       ],
-      tools: ["React", "Typescript", "Material-UI", "HTML5", "Karma", "Jest"],
+      tools: ["React", "Typescript", "Material-UI", "HTML5", "Karma", "Jest"]
     },
     {
       jobTitle: "Frontend developer",
@@ -75,9 +79,9 @@ function Resume() {
       responsibilities: [
         `Updating the AngularJS application components to a newer version (Angular 2)`,
         `Improving existing web application, enhancing it functionality and appearance`,
-        `Implementation of individual components`,
+        `Implementation of individual components`
       ],
-      tools: ["AngularJS", "Angular2", "Typescript", "HTML5", "CSS"],
+      tools: ["AngularJS", "Angular2", "Typescript", "HTML5", "CSS"]
     },
     {
       jobTitle: "Frontend developer intern",
@@ -96,10 +100,10 @@ function Resume() {
         `Actively participated in team meetings, discussions. Communicated effectively with team 
       members and stakeholders to gather requirements and provide updates`,
         `Expanded knowledge and skills in front-end development technologies, frameworks, and 
-      tools. Experimented with new techniques and approaches`,
+      tools. Experimented with new techniques and approaches`
       ],
-      tools: ["Angular2", "Typescript", "D3.js", "HTML5", "ES6", "SCSS"],
-    },
+      tools: ["Angular2", "Typescript", "D3.js", "HTML5", "ES6", "SCSS"]
+    }
   ];
 
   return (
@@ -107,8 +111,23 @@ function Resume() {
       <div className="flex flex-col py-10 justify-end items-end">
         <h1 className="text-4xl text-white">Resume</h1>
 
-        <div className="mt-8">
-          <ArrowDownTrayIcon className="text-light-blue size-6 cursor-pointer" />
+        <div className="mt-8 flex flex-row">
+          <div className="relative mr-4">
+            {isEyeHovered && <Tooltip text="Preview PDF" />}
+            <EyeIcon
+              className="text-light-blue size-6 cursor-pointer"
+              onMouseEnter={() => setIsEyeHovered(true)}
+              onMouseLeave={() => setIsEyeHovered(false)}
+            />
+          </div>
+          <div className="relative">
+            {isDownloadHovered && <Tooltip text="Download PDF" />}
+            <ArrowDownTrayIcon
+              className="text-light-blue size-6 cursor-pointer"
+              onMouseEnter={() => setIsDownloadHovered(true)}
+              onMouseLeave={() => setIsDownloadHovered(false)}
+            />
+          </div>
         </div>
 
         <div className="w-full mt-20 relative">
