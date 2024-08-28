@@ -6,6 +6,7 @@ import Footer from "../Components/Footer";
 import Socials from "../Components/Socials";
 import { NotificationProvider } from "../providers/NotificationProvider";
 import Notification from "../Components/Notification";
+import GoToTopButton from "../Components/GoToTopButton";
 
 function App() {
   return (
@@ -90,6 +91,7 @@ function MainContent() {
         <Footer />
       </div>
       <Notification />
+      <GoToTopButton />
     </NotificationProvider>
   );
 }
