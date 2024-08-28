@@ -4,6 +4,8 @@ import Toolbar from "../Components/Toolbar";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import Socials from "../Components/Socials";
+import { NotificationProvider } from "../providers/NotificationProvider";
+import Notification from "../Components/Notification";
 
 function App() {
   return (
@@ -53,39 +55,42 @@ function MainContent() {
   }, []);
 
   return (
-    <div className="relative">
-      <div className="bg-main-bg bg-cover bg-no-repeat w-full h-[calc(100vh+700px)] overflow-x-hidden"></div>
-      <div
-        ref={overlayRef}
-        className="bg-dark-blue-500 absolute top-0 left-0 w-full h-[calc(100vh+700px)] pointer-events-auto"
-        style={{
-          background: isHovered
-            ? `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 200px, rgba(0,0,0,0.95) 200px)`
-            : "rgba(0,0,0,0.95)",
-        }}
-      >
-        <div className="flex flex-row px-40 py-20">
-          <div className="flex-[20%] min-w-[173px] flex justify-start">
-            <Navbar />
-          </div>
-          <div className="flex-[80%] flex justify-end">
-            <div className="flex flex-col w-[calc(100%-1px)]">
-              <Toolbar />
+    <NotificationProvider>
+      <div className="relative">
+        <div className="bg-main-bg bg-cover bg-no-repeat w-full h-[calc(100vh+700px)] overflow-x-hidden"></div>
+        <div
+          ref={overlayRef}
+          className="bg-dark-blue-500 absolute top-0 left-0 w-full h-[calc(100vh+700px)] pointer-events-auto"
+          style={{
+            background: isHovered
+              ? `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 200px, rgba(0,0,0,0.95) 200px)`
+              : "rgba(0,0,0,0.95)"
+          }}
+        >
+          <div className="flex flex-row px-40 py-20">
+            <div className="flex-[20%] min-w-[173px] flex justify-start">
+              <Navbar />
+            </div>
+            <div className="flex-[80%] flex justify-end">
+              <div className="flex flex-col w-[calc(100%-1px)]">
+                <Toolbar />
 
-              <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                  <Route path="/" Component={Profile} />
-                  <Route path="/projects" Component={Projects} />
-                  <Route path="/resume" Component={Resume} />
-                </Routes>
-              </Suspense>
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Routes>
+                    <Route path="/" Component={Profile} />
+                    <Route path="/projects" Component={Projects} />
+                    <Route path="/resume" Component={Resume} />
+                  </Routes>
+                </Suspense>
+              </div>
             </div>
           </div>
+          <Socials />
         </div>
-        <Socials />
+        <Footer />
       </div>
-      <Footer />
-    </div>
+      <Notification />
+    </NotificationProvider>
   );
 }
 
