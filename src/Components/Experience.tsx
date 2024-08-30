@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ThemeContext } from "../providers/ThemeContext";
 import Arc from "./Arc";
 
 export type ArcOptions = {
@@ -17,14 +19,16 @@ export type Content = {
 };
 
 function Experience() {
+  const { isDarkTheme } = useContext(ThemeContext);
+
   const arcOptions: ArcOptions[] = [
     { color: "#468FAF", size: "sm", strokeWidth: 10, animation: false },
     {
-      color: "#A9D6E5",
+      color: isDarkTheme ? "#A9D6E5" : "#2C7DA0",
       size: "md",
       strokeWidth: 2,
       animation: true,
-      strokeDasharray: "2,10",
+      strokeDasharray: "2,10"
     },
     {
       color: "#013A63",
@@ -37,26 +41,25 @@ function Experience() {
         {
           year: 2021,
           title: "Frontend Developer",
-          description:
-            "Angular14, RxJS, Typescript, PrimeNG, KendoUI, \n D3.js, Bootstrap, RWD, SCSS",
+          description: "Angular14, RxJS, Typescript, PrimeNG, KendoUI, \n D3.js, Bootstrap, RWD, SCSS"
         },
         {
           year: 2019,
           title: "Junior Frontend Developer",
-          description: "React, Typescript, MaterialUI, RWD, SCSS",
+          description: "React, Typescript, MaterialUI, RWD, SCSS"
         },
         {
           year: 2019,
           title: "Frontend Developer - Intern",
-          description: "Angular2, Typescript, ES6, D3.js, RWD, SCSS",
+          description: "Angular2, Typescript, ES6, D3.js, RWD, SCSS"
         },
         {
           year: 2018,
           title: "Graphic Designer",
-          description: "Adobe Photoshop, InkScape",
-        },
-      ],
-    },
+          description: "Adobe Photoshop, InkScape"
+        }
+      ]
+    }
   ];
 
   return (

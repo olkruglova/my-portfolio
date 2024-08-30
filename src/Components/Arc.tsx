@@ -1,25 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { ArcOptions, Content } from "./Experience";
+import { ThemeContext } from "../providers/ThemeContext";
 
 function Arc({ options }: { options: ArcOptions }) {
-  const {
-    color,
-    size,
-    animation,
-    strokeWidth,
-    strokeDasharray,
-    animationReverse,
-    content,
-  } = options;
+  const { isDarkTheme } = useContext(ThemeContext);
+
+  const { color, size, animation, strokeWidth, strokeDasharray, animationReverse, content } = options;
   const pathRef = useRef<SVGPathElement>(null);
-  const [circlePositions, setCirclePositions] = useState<
-    { cx: number; cy: number; content?: Content }[]
-  >([]);
+  const [circlePositions, setCirclePositions] = useState<{ cx: number; cy: number; content?: Content }[]>([]);
 
   const path: { [key: string]: string } = {
     sm: "M 0 160 A 75 75 0 0 1 0 370",
     md: "M 0 140 A 75 75 0 0 1 0 390",
-    lg: "M 0 100 A 75 75 0 0 1 0 430",
+    lg: "M 0 100 A 75 75 0 0 1 0 430"
   };
 
   useEffect(() => {
@@ -34,9 +27,7 @@ function Arc({ options }: { options: ArcOptions }) {
       const positions = [];
 
       for (let i = 0; i < numCircles; i++) {
-        const point = pathElement.getPointAtLength(
-          startLength + ((endLength - startLength) * i) / (numCircles - 1)
-        );
+        const point = pathElement.getPointAtLength(startLength + ((endLength - startLength) * i) / (numCircles - 1));
         positions.push({ cx: point.x, cy: point.y, content: content?.[i] });
       }
 
@@ -93,7 +84,7 @@ function Arc({ options }: { options: ArcOptions }) {
           <text
             x="-267"
             y="10"
-            fill="white"
+            fill={isDarkTheme ? "white" : "#000d17"}
             textAnchor="middle"
             alignmentBaseline="middle"
             className="text-lg"
@@ -107,9 +98,7 @@ function Arc({ options }: { options: ArcOptions }) {
           <filter id="drop-shadow">
             <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
             <feOffset dx="0" dy="0" result="offsetblur" />
-            <feFlood
-              floodColor={hoveredIndex !== null ? "#A9D6E5" : "#61A5C2"}
-            />
+            <feFlood floodColor={isDarkTheme ? "#A9D6E5" : "#61A5C2"} />
             <feComposite in2="offsetblur" operator="in" />
             <feMerge>
               <feMergeNode />
@@ -128,19 +117,13 @@ function Arc({ options }: { options: ArcOptions }) {
           const rectX = circleX + circleRadius * 2 * Math.cos(angleRad);
           const rectY = circleY - height / 2;
           const hovered = hoveredIndex === index;
-          const shadowColor = hovered ? "#A9D6E5" : "#61A5C2";
+          const strokeColor = isDarkTheme ? (hovered ? "#A9D6E5" : "#61A5C2") : hovered ? "#000d17" : "#012A4A";
 
           const hitAreaPadding = 10;
           const hitAreaX = Math.min(item.cx, rectX) - hitAreaPadding;
           const hitAreaY = Math.min(item.cy, rectY) - hitAreaPadding;
-          const hitAreaWidth =
-            Math.max(rectX + rectWidth, circleX + circleRadius) -
-            hitAreaX +
-            hitAreaPadding;
-          const hitAreaHeight =
-            Math.max(rectY + height, circleY + circleRadius) -
-            hitAreaY +
-            hitAreaPadding;
+          const hitAreaWidth = Math.max(rectX + rectWidth, circleX + circleRadius) - hitAreaX + hitAreaPadding;
+          const hitAreaHeight = Math.max(rectY + height, circleY + circleRadius) - hitAreaY + hitAreaPadding;
 
           return (
             <g
@@ -149,18 +132,12 @@ function Arc({ options }: { options: ArcOptions }) {
               onMouseLeave={() => setHoveredIndex(null)}
               style={{
                 cursor: "pointer",
-                transition: "transform 0.3s ease-in-out",
+                transition: "transform 0.3s ease-in-out"
               }}
               transform={`scale(${hovered ? 1.1 : 1})`}
               transform-origin={`${item.cx}px ${item.cy}px`}
             >
-              <rect
-                x={hitAreaX}
-                y={hitAreaY}
-                width={hitAreaWidth}
-                height={hitAreaHeight}
-                fill="transparent"
-              />
+              <rect x={hitAreaX} y={hitAreaY} width={hitAreaWidth} height={hitAreaHeight} fill="transparent" />
 
               <line
                 x1={item.cx}
@@ -168,7 +145,7 @@ function Arc({ options }: { options: ArcOptions }) {
                 x2={x2}
                 y2={y2}
                 strokeWidth="1"
-                stroke={shadowColor}
+                stroke={strokeColor}
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 fill="none"
@@ -179,7 +156,7 @@ function Arc({ options }: { options: ArcOptions }) {
                 cy={item.cy}
                 r="4"
                 strokeWidth="1"
-                stroke={shadowColor}
+                stroke={strokeColor}
                 fill="#012A4A"
                 filter={hovered ? "url(#drop-shadow)" : "none"}
               />
@@ -188,7 +165,7 @@ function Arc({ options }: { options: ArcOptions }) {
                 cy={circleY}
                 r={circleRadius}
                 strokeWidth="1"
-                stroke={shadowColor}
+                stroke={strokeColor}
                 fill="#012A4A"
                 filter={hovered ? "url(#drop-shadow)" : "none"}
               />
@@ -210,14 +187,14 @@ function Arc({ options }: { options: ArcOptions }) {
                 rx={rectRadius}
                 ry={rectRadius}
                 fill="transparent"
-                stroke={shadowColor}
+                stroke={strokeColor}
                 strokeWidth="0.5"
                 filter={hovered ? "url(#drop-shadow)" : "none"}
               />
               <text
                 x={rectX + rectWidth / 2}
                 y={rectY + 25}
-                fill={shadowColor}
+                fill={strokeColor}
                 fontWeight="bold"
                 textAnchor="middle"
                 className="text-lg"
@@ -227,16 +204,12 @@ function Arc({ options }: { options: ArcOptions }) {
               <text
                 x={rectX + rectWidth / 2}
                 y={rectY + 55}
-                fill={shadowColor}
+                fill={strokeColor}
                 textAnchor="middle"
                 className="text-base"
               >
                 {item.content?.description.split("\n").map((line, index) => (
-                  <tspan
-                    x={rectX + rectWidth / 2}
-                    dy={index === 0 ? "0em" : "1.2em"}
-                    key={index}
-                  >
+                  <tspan x={rectX + rectWidth / 2} dy={index === 0 ? "0em" : "1.2em"} key={index}>
                     {line}
                   </tspan>
                 ))}

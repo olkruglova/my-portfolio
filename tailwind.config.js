@@ -1,9 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 
 import colors from "tailwindcss/colors";
+import plugin from "tailwindcss/plugin";
 
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     colors: {
       transparent: "transparent",
@@ -34,6 +36,7 @@ export default {
         300: "#ff6d6d",
         400: "#ff5f5f",
         500: "#ff4e4e",
+        dark: "#B32A2A",
         DEFAULT: "#ff7878"
       }
     },
@@ -102,8 +105,24 @@ export default {
       },
       boxShadow: {
         top: "0 -25px 50px -12px rgb(0 0 0 / 0.25);"
+      },
+      textShadow: {
+        sm: "0 1px 2px #013A63",
+        DEFAULT: "2px -2px 6px #013A63",
+        lg: "2px -2px 0px #013A63"
       }
     }
   },
-  plugins: []
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          "text-shadow": (value) => ({
+            textShadow: value
+          })
+        },
+        { values: theme("textShadow") }
+      );
+    })
+  ]
 };

@@ -10,13 +10,15 @@ const Notification: React.FC = () => {
   return (
     <div
       className={`w-96 h-auto border-l-2 py-4 px-6 bg-gray-200 fixed top-4 right-4 z-50 flex flex-row ${
-        notification.type === "success" ? "border-l-green-600" : "border-l-salmon"
+        notification.type === "success"
+          ? "border-l-green-900 dark:border-l-green-600"
+          : "border-l-salmon-dark dark:border-l-salmon"
       }`}
     >
       {notification.type === "success" ? (
-        <CheckCircleIcon className="w-5 h-5 text-green-600" />
+        <CheckCircleIcon className="w-5 h-5 text-green-900 dark:text-green-600" />
       ) : (
-        <ExclamationCircleIcon className="w-5 h-5 text-salmon" />
+        <ExclamationCircleIcon className="w-5 h-5 text-salmon-dark dark:text-salmon" />
       )}
       <p className="text-md text-dark-blue ml-3">{notification.message}</p>
     </div>
