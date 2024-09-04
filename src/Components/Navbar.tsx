@@ -25,7 +25,9 @@ function Navbar() {
             {item.name === "Get in touch" ? (
               <div
                 className={`flex flex-row items-center mb-3 cursor-pointer ${
-                  isHovered ? "text-light-blue" : "text-light-blue-500"
+                  isHovered
+                    ? "text-dark-blue dark:text-light-blue font-bold transition-all duration-300 ease-in-out"
+                    : "text-dark-blue dark:text-light-blue-500 transition-all duration-300 ease-in-out"
                 }`}
                 onClick={handleScrollToFooter}
                 onMouseEnter={() => setIsHovered(true)}
@@ -34,10 +36,10 @@ function Navbar() {
                 <div className="flex flex-row items-center">
                   <div
                     className={`${
-                      isHovered ? "bg-light-blue" : "bg-light-blue-500"
+                      isHovered ? "bg-dark-blue dark:bg-light-blue" : "bg-light-blue-500"
                     } rounded-lg w-px h-16 flex flex-row items-center opacity-0 animate-appearance-y`}
                   ></div>
-                  <div className="bg-light-blue rounded-lg w-0 h-px opacity-0 animate-reverse-appearance-x"></div>
+                  <div className="bg-dark-blue dark:bg-light-blue rounded-lg w-0 h-px opacity-0 animate-reverse-appearance-x"></div>
                 </div>
                 <div className="ml-3">{item.name}</div>
               </div>

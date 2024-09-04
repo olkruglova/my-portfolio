@@ -10,9 +10,7 @@ function ProjectCard({ project, index }: any) {
 
   return (
     <div
-      className={`flex flex-row flex-wrap w-full mb-40 ${
-        isEven ? "" : "flex-row-reverse"
-      }`}
+      className={`flex flex-row flex-wrap w-full mb-40 ${isEven ? "" : "flex-row-reverse"}`}
       onMouseEnter={() => setIsOnHover(true)}
       onMouseLeave={() => setIsOnHover(false)}
     >
@@ -30,7 +28,7 @@ function ProjectCard({ project, index }: any) {
         <div className="w-full h-full flip-box bg-transparent">
           <div className="relative w-full h-full flip-box-inner cursor-pointer">
             <div className="absolute w-full h-full flip-box-front bg-opacity-90 flex flex-col justify-center items-center bg-gradient-to-tr from-dark-blue via-transparent to-dark-blue">
-              <h2 className="text-2xl text-light-blue">{title}</h2>
+              <h2 className="text-2xl">{title}</h2>
             </div>
 
             <div className="absolute w-full h-full flip-box-back">
@@ -59,18 +57,18 @@ function ProjectCard({ project, index }: any) {
             : "border-gradient pl-10 pr-5"
         }`}
       >
-        <p className="text-sm text-white">{description}</p>
+        <p className="text-sm">{description}</p>
         <div className="flex flex-row mt-10 tags">
           {tags.map((tag: string, index: number) => (
             <p
               key={`${index}-${tag}`}
-              className="text-xs text-light-blue-400 bg-transparent-30 bg-dark-blue-400 bg-opacity-50 rounded-2xl py-px px-3 mr-2"
+              className="text-xs text-white dark:text-light-blue-400 bg-transparent-30 bg-dark-blue-400 bg-opacity-50 rounded-2xl py-px px-3 mr-2"
             >
               {tag}
             </p>
           ))}
         </div>
-        ''
+
         <div className="flex flex-row self-end mt-8 links">
           <a
             href={url}
@@ -86,10 +84,7 @@ function ProjectCard({ project, index }: any) {
             rel="noopener noreferrer"
             className=" text-dark-blue-500 hover:text-light-blue"
           >
-            <FontAwesomeIcon
-              icon={faGithub}
-              style={{ width: "20px", height: "20px" }}
-            />
+            <FontAwesomeIcon icon={faGithub} style={{ width: "20px", height: "20px" }} />
           </a>
         </div>
       </div>

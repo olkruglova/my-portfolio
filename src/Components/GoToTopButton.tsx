@@ -6,6 +6,8 @@ function GoToTopButton() {
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -33,7 +35,7 @@ function GoToTopButton() {
       onClick={scrollToTop}
       onScroll={() => setIsScrolling(true)}
     >
-      <ArrowUpCircleIcon className="text-light-blue size-11" />
+      <ArrowUpCircleIcon className="dark:text-light-blue text-dark-blue-500 hover:text-light-blue hover:dark:text-dark size-11 transition-all duration-300 ease-in-out" />
     </div>
   );
 }

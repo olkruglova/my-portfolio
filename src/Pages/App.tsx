@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useContext, useEffect, useRef, useState } from "react";
 import Toolbar from "../Components/Toolbar";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
@@ -7,11 +7,15 @@ import Socials from "../Components/Socials";
 import { NotificationProvider } from "../providers/NotificationProvider";
 import Notification from "../Components/Notification";
 import GoToTopButton from "../Components/GoToTopButton";
+import { ThemeProvider } from "../providers/ThemeProvider";
+import { ThemeContext } from "../providers/ThemeContext";
 
 function App() {
   return (
     <Router>
-      <MainContent />
+      <ThemeProvider>
+        <MainContent />
+      </ThemeProvider>
     </Router>
   );
 }
@@ -22,8 +26,8 @@ const Resume = lazy(() => import("./Resume"));
 
 function MainContent() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const { isDarkTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -36,36 +40,29 @@ function MainContent() {
       }
     };
 
-    const handleMouseEnter = () => setIsHovered(true);
-    const handleMouseLeave = () => setIsHovered(false);
-
     const overlay = overlayRef.current;
     if (overlay) {
       overlay.addEventListener("mousemove", handleMouseMove);
-      overlay.addEventListener("mouseenter", handleMouseEnter);
-      overlay.addEventListener("mouseleave", handleMouseLeave);
     }
 
     return () => {
       if (overlay) {
         overlay.removeEventListener("mousemove", handleMouseMove);
-        overlay.removeEventListener("mouseenter", handleMouseEnter);
-        overlay.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
   }, []);
 
   return (
     <NotificationProvider>
-      <div className="relative">
+      <div className="relative text-dark-blue dark:text-white">
         <div className="bg-main-bg bg-cover bg-no-repeat w-full h-[calc(100vh+700px)] overflow-x-hidden"></div>
         <div
           ref={overlayRef}
-          className="bg-dark-blue-500 absolute top-0 left-0 w-full h-[calc(100vh+700px)] pointer-events-auto"
+          className="absolute top-0 left-0 w-full h-[calc(100vh+700px)] pointer-events-auto"
           style={{
-            background: isHovered
+            background: isDarkTheme
               ? `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 200px, rgba(0,0,0,0.95) 200px)`
-              : "rgba(0,0,0,0.95)"
+              : "rgba(255,255,255,0.85)"
           }}
         >
           <div className="flex flex-row px-40 py-20">
