@@ -109,13 +109,13 @@ function Resume() {
   return (
     <>
       <div className="flex flex-col py-10 justify-end items-end">
-        <h1 className="text-4xl text-white">Resume</h1>
+        <h1 className="text-4xl">Resume</h1>
 
         <div className="mt-8 flex flex-row">
           <div className="relative mr-4">
             {isEyeHovered && <Tooltip text="Preview PDF" />}
             <EyeIcon
-              className="text-light-blue size-6 cursor-pointer"
+              className="text-dark-blue dark:text-light-blue size-6 cursor-pointer"
               onMouseEnter={() => setIsEyeHovered(true)}
               onMouseLeave={() => setIsEyeHovered(false)}
             />
@@ -123,7 +123,7 @@ function Resume() {
           <div className="relative">
             {isDownloadHovered && <Tooltip text="Download PDF" />}
             <ArrowDownTrayIcon
-              className="text-light-blue size-6 cursor-pointer"
+              className="text-dark-blue dark:text-light-blue size-6 cursor-pointer"
               onMouseEnter={() => setIsDownloadHovered(true)}
               onMouseLeave={() => setIsDownloadHovered(false)}
             />
