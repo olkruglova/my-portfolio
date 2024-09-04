@@ -2,10 +2,12 @@ import { ArrowDownTrayIcon, EyeIcon } from "@heroicons/react/24/solid";
 import JobCard from "../Components/JobCard";
 import { useState } from "react";
 import Tooltip from "../Components/Tooltip";
+import PDFPreview from "../Components/PDFPreview";
 
 function Resume() {
   const today = new Date();
   const thisYear = today.getFullYear();
+  const [previePDF, setPreviePDF] = useState(false);
   const [isEyeHovered, setIsEyeHovered] = useState(false);
   const [isDownloadHovered, setIsDownloadHovered] = useState(false);
 
@@ -118,6 +120,7 @@ function Resume() {
               className="text-dark-blue dark:text-light-blue size-6 cursor-pointer"
               onMouseEnter={() => setIsEyeHovered(true)}
               onMouseLeave={() => setIsEyeHovered(false)}
+              onClick={() => setPreviePDF(true)}
             />
           </div>
           <div className="relative">
@@ -136,6 +139,8 @@ function Resume() {
           })}
         </div>
       </div>
+
+      {previePDF && <PDFPreview />}
     </>
   );
 }
