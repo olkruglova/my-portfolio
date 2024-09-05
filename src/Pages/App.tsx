@@ -83,10 +83,10 @@ function MainContent() {
               </div>
             </div>
           </div>
-          <Socials />
         </div>
         <Footer />
       </div>
+      <Socials />
       <Notification />
       <GoToTopButton />
     </NotificationProvider>

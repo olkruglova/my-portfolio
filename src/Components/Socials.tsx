@@ -55,7 +55,7 @@ function Socials() {
   }, []);
 
   return (
-    <div className="flex flex-col fixed bottom-20 left-40 social z-50">
+    <div id="socials" className="flex flex-col fixed bottom-20 left-40 social z-50">
       {socialItems.map((item, index) => (
         <a
           key={index}
