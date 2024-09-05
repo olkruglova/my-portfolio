@@ -2,12 +2,15 @@ import { ArrowDownTrayIcon, EyeIcon } from "@heroicons/react/24/solid";
 import JobCard from "../Components/JobCard";
 import { useState } from "react";
 import Tooltip from "../Components/Tooltip";
+import PDFViewer from "../Components/PDFViewer";
 
 function Resume() {
   const today = new Date();
   const thisYear = today.getFullYear();
+  const [previewPDF, setPreviePDF] = useState(false);
   const [isEyeHovered, setIsEyeHovered] = useState(false);
   const [isDownloadHovered, setIsDownloadHovered] = useState(false);
+  const pdfUrl: string = "./src/assets/docs/Olga_Kruhlova_CV.pdf";
 
   const jobs = [
     {
@@ -115,15 +118,16 @@ function Resume() {
           <div className="relative mr-4">
             {isEyeHovered && <Tooltip text="Preview PDF" />}
             <EyeIcon
-              className="text-dark-blue dark:text-light-blue size-6 cursor-pointer"
+              className="text-dark-blue dark:text-light-blue hover:text-light-blue hover:dark:text-dark-blue size-6 cursor-pointer transition-all duration-300 ease-in-out"
               onMouseEnter={() => setIsEyeHovered(true)}
               onMouseLeave={() => setIsEyeHovered(false)}
+              onClick={() => setPreviePDF(true)}
             />
           </div>
           <div className="relative">
             {isDownloadHovered && <Tooltip text="Download PDF" />}
             <ArrowDownTrayIcon
-              className="text-dark-blue dark:text-light-blue size-6 cursor-pointer"
+              className="text-dark-blue dark:text-light-blue hover:text-light-blue hover:dark:text-dark-blue size-6 cursor-pointer transition-all duration-300 ease-in-out"
               onMouseEnter={() => setIsDownloadHovered(true)}
               onMouseLeave={() => setIsDownloadHovered(false)}
             />
@@ -136,6 +140,8 @@ function Resume() {
           })}
         </div>
       </div>
+
+      {previewPDF && <PDFViewer fileUrl={pdfUrl} onClose={() => setPreviePDF(false)} />}
     </>
   );
 }
