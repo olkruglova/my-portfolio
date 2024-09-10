@@ -3,6 +3,7 @@ import JobCard from "../Components/JobCard";
 import { useState } from "react";
 import Tooltip from "../Components/Tooltip";
 import PDFViewer from "../Components/PDFViewer";
+import { downloadFile } from "../services/download.service";
 
 function Resume() {
   const today = new Date();
@@ -109,6 +110,13 @@ function Resume() {
     }
   ];
 
+  const downloadPDF = () => {
+    const fileUrl = "./src/assets/docs/Olga_Kruhlova_CV.pdf";
+    const fileName = "Olga_Kruhlova_CV.pdf";
+
+    downloadFile(fileUrl, fileName);
+  };
+
   return (
     <>
       <div className="flex flex-col py-10 justify-end items-end">
@@ -130,6 +138,7 @@ function Resume() {
               className="text-dark-blue dark:text-light-blue hover:text-light-blue hover:dark:text-dark-blue size-6 cursor-pointer transition-all duration-300 ease-in-out"
               onMouseEnter={() => setIsDownloadHovered(true)}
               onMouseLeave={() => setIsDownloadHovered(false)}
+              onClick={() => downloadPDF()}
             />
           </div>
         </div>
