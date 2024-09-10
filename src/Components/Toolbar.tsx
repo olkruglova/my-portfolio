@@ -1,14 +1,36 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import { ThemeContext } from "../providers/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 function Toolbar() {
-  const languages = ["EN", "PL"];
+  const { t, i18n } = useTranslation();
+  const languages = [
+    { name: "en", title: "EN" },
+    { name: "pl", title: "PL" }
+  ];
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
   const { isDarkTheme, setIsDarkTheme } = useContext(ThemeContext);
 
   const themeSwitch = () => {
     setIsDarkTheme(!isDarkTheme);
   };
+
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+  };
+
+  useEffect(() => {
+    const handleLanguageChange = (lng: string) => {
+      setCurrentLanguage(lng);
+    };
+
+    i18n.on("languageChanged", handleLanguageChange);
+
+    return () => {
+      i18n.off("languageChanged", handleLanguageChange);
+    };
+  }, [i18n]);
 
   return (
     <ul className="flex flex-row text-light-blue-500 justify-end mb-10">
@@ -43,9 +65,12 @@ function Toolbar() {
         {languages.map((language, idx) => (
           <span
             key={`${idx}-${language}`}
-            className="pl-1 text-dark dark:text-light-blue-400 hover:text-dark-blue-500 hover:dark:text-light-blue hover:font-bold items-center mr-2 cursor-pointer transition-all duration-300 ease-in-out"
+            className={`${
+              currentLanguage === language.name ? "font-bold" : ""
+            } pl-1 text-dark dark:text-light-blue-400 hover:text-dark-blue-500 hover:dark:text-light-blue hover:font-bold items-center mr-2 cursor-pointer transition-all duration-300 ease-in-out`}
+            onClick={() => changeLanguage(language.name)}
           >
-            {language}
+            {language.title}
           </span>
         ))}
       </li>

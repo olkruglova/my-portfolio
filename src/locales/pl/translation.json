@@ -1,0 +1,132 @@
+{
+  "navItems": {
+    "profile": "Profil",
+    "projects": "Projekty",
+    "resume": "CV",
+    "getInTouch": "Kontakt"
+  },
+  "profile": {
+    "fullName": "Olga Kruglova",
+    "jobTitle": "Frontend Developer",
+    "title": "Profil",
+    "description": {
+      "line1": "Jestem frontend deweloperem z Poznania, Polska.",
+      "line2": "Pasjonuję się idealnymi pod względem pikseli, pięknymi interfejsami.",
+      "line3": "{yearsAgo} lat temu postanowiłam spróbować swoich sił we frontendzie. Dziś to moja pasja.",
+      "line4": {
+        "start": "Pracuję i współpracuję z utalentowanymi ludźmi, aby tworzyć produkty cyfrowe, i ",
+        "end": "kocham to, co robię."
+      }
+    }
+  },
+  "projects": {
+    "title": "Projekty",
+    "description": {
+      "line1": "Oto niektóre z projektów, nad którymi pracowałam na przestrzeni lat, zarówno przeszłe, jak i obecne.",
+      "line2": "Zapraszam do zapoznania się z nimi."
+    },
+    "projects": {
+      "pixelArt": {
+        "name": "pixelArt",
+        "title": "Twórca Sztuki Pikselowej",
+        "description": "Twórca Sztuki Pikselowej to kreatywne narzędzie, które pozwala użytkownikom projektować i tworzyć własną sztukę pikselową. Użytkownicy mogą wybierać kolory z palety i wypełniać siatkę, tworząc obrazy, wzory lub postacie. Spróbuj stworzyć coś pięknego z tym narzędziem do sztuki pikselowej."
+      },
+      "matchingGame": {
+        "name": "matchingGame",
+        "title": "Gra Memory",
+        "description": "Gra Memory to interaktywna łamigłówka, w której gracze testują swoją pamięć, odkrywając karty w celu znalezienia par. Każda karta przedstawia obraz, a celem jest dopasowanie wszystkich par tak szybko, jak to możliwe. Gra rozwija pamięć, koncentrację i umiejętność rozpoznawania wzorców, dzięki czemu jest zabawną i wymagającą aktywnością dla osób w każdym wieku."
+      }
+    }
+  },
+  "resume": {
+    "title": "CV",
+    "previewTooltip": "Podgląd PDF",
+    "downloadTooltip": "Pobierz PDF",
+    "jobs": [
+      {
+        "jobTitle": "Frontend inżynier oprogramowania",
+        "clientLocation": "Anglia",
+        "sector": "Lotnictwo",
+        "description": "Integrated Lifing to platforma do monitorowania flot silników. Wspiera planowanie wymiany silników i ocenę inżynieryjną, wspiera dochodzenia związane z Red-Top i bezpieczeństwem oraz planowanie gotowości operacyjnej i planowania samolotów.",
+        "years": "2022 - {thisYear}",
+        "responsibilities": [
+          "Korzystanie z frameworka Angular, szczególnie Angular 15 i nowszych, w celu przepisania i optymalizacji istniejącej aplikacji JavaScript",
+          "Tworzenie komponentów internetowych przy użyciu Typescript i KendoUI",
+          "Implementacja funkcji interfejsu użytkownika przy użyciu Angular i PrimeNG",
+          "Zarządzanie zależnościami i bibliotekami w ekosystemie Angular, zapewniając kompatybilność i optymalną wydajność",
+          "Używanie frameworków testowych (Jasmine, Karma) i narzędzi do debugowania",
+          "Refaktoryzacja kodu i przegląd kodu",
+          "Rozwiązywanie problemów z front-endem",
+          "Integracja zewnętrznych API i usług, gdy jest to konieczne",
+          "Efektywna komunikacja i współpraca z projektantami UX; czytanie i wdrażanie projektów Figma"
+        ],
+        "tools": [
+          "Angular14+",
+          "Typescript",
+          "RxJS",
+          "D3.js",
+          "KendoUI",
+          "PrimeNG",
+          "Bootstrap",
+          "HTML5",
+          "ES6",
+          "SCSS",
+          "Jasmine",
+          "Karma"
+        ]
+      },
+      {
+        "jobTitle": "Frontend developer",
+        "clientLocation": "Niemcy",
+        "sector": "Edukacja",
+        "description": "Startup HR z siedzibą w Düsseldorfie i Berlinie. Wspiera firmy w rozwijaniu umiejętności pracowników. Za pomocą danych identyfikuje luki w umiejętnościach i personalizuje proces uczenia się na podstawie umiejętności, statusu lub poziomu zaawansowania. Oferuje klientom symulacje biznesowe lub gry, skupiając się na doskonaleniu umiejętności pracowników.",
+        "years": "2020-2022",
+        "responsibilities": [
+          "Tworzenie dynamicznych, jednostronicowych aplikacji internetowych za pomocą React i Material-UI",
+          "Ścisła współpraca z projektantami UX, tłumaczenie ich projektów z Adobe na interaktywne elementy strony internetowej",
+          "Wdrażanie technik responsywnego projektowania stron internetowych w celu zapewnienia optymalnej wydajności na różnych urządzeniach i rozdzielczościach ekranu (komputery stacjonarne, tablety, telefony)",
+          "Ścisła współpraca z zespołem backendowym w celu integracji funkcjonalności front-end i back-end",
+          "Tworzenie kompleksowych testów jednostkowych",
+          "Uczestnictwo w przeglądach kodu"
+        ],
+        "tools": ["React", "Typescript", "Material-UI", "HTML5", "Karma", "Jest"]
+      },
+      {
+        "jobTitle": "Frontend developer",
+        "clientLocation": "Polska",
+        "sector": "Bankowość prywatna",
+        "description": "AntiFraud Hub to platforma zapobiegania oszustwom.",
+        "years": "2019",
+        "responsibilities": [
+          "Aktualizacja komponentów aplikacji AngularJS do nowszej wersji (Angular 2)",
+          "Poprawa istniejącej aplikacji internetowej, ulepszanie jej funkcjonalności i wyglądu",
+          "Implementacja poszczególnych komponentów"
+        ],
+        "tools": ["AngularJS", "Angular2", "Typescript", "HTML5", "CSS"]
+      },
+      {
+        "jobTitle": "Frontend developer stażysta",
+        "clientLocation": "Anglia",
+        "sector": "Lotnictwo",
+        "description": "Projekt ma na celu obniżenie kosztów cyklu życia silników, zapewnienie szybkiej reakcji operacyjnej na całym świecie i poprawę bezpieczeństwa oraz jakości zainstalowanej infrastruktury.",
+        "years": "2019",
+        "responsibilities": [
+          "Współudział w projektowaniu i udoskonalaniu interfejsów użytkownika, skupiając się na użyteczności, dostępności i estetyce. Implementacja zasad responsywnego projektowania, aby zapewnić kompatybilność na różnych urządzeniach i rozmiarach ekranu",
+          "Rozwiązywanie różnych problemów i błędów w kodzie front-endowym, aby poprawić stabilność i wydajność aplikacji",
+          "Aktywne uczestnictwo w spotkaniach zespołowych, dyskusjach. Skuteczna komunikacja z członkami zespołu i interesariuszami w celu zebrania wymagań i dostarczania aktualizacji",
+          "Rozwijanie wiedzy i umiejętności w technologiach, frameworkach i narzędziach front-endowych. Eksperymentowanie z nowymi technikami i podejściami"
+        ],
+        "tools": ["Angular2", "Typescript", "D3.js", "HTML5", "ES6", "SCSS"]
+      }
+    ]
+  },
+  "getInTouch": {
+    "title": "Kontakt",
+    "form": {
+      "name": "Imię",
+      "email": "E-mail",
+      "message": "Wiadomość",
+      "submit": "Powiedz cześć"
+    }
+  }
+}

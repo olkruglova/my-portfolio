@@ -13,6 +13,19 @@ function Resume() {
   const [isDownloadHovered, setIsDownloadHovered] = useState(false);
   const pdfUrl: string = "./src/assets/docs/Olga_Kruhlova_CV.pdf";
 
+  //   const jobs = [
+  //     {
+  //       jobTitle: t('jobs.job1.jobTitle'),
+  //       clientLocation: t('jobs.job1.clientLocation'),
+  //       sector: t('jobs.job1.sector'),
+  //       description: t('jobs.job1.description'),
+  //       years: t('jobs.job1.years', { thisYear }),
+  //       responsibilities: t('jobs.job1.responsibilities', { returnObjects: true }),
+  //       tools: t('jobs.job1.tools', { returnObjects: true })
+  //     },
+  //     // Add other jobs similarly
+  //   ];
+
   const jobs = [
     {
       jobTitle: "Frontend software engineer",
