@@ -1,5 +1,9 @@
 import ContactForm from "./ContactForm";
-import { ArcOptions } from "./Experience";
+import { faClockRotateLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import Tooltip from "./Tooltip";
+import { redirect } from "react-router-dom";
 
 function Footer() {
   //   const opt: ArcOptions = {
@@ -10,6 +14,11 @@ function Footer() {
   //     strokeDasharray: "2,10"
   //   };
   const thisYear = new Date().getFullYear();
+  const [isPastIconHovered, setIsPastIconHovered] = useState(false);
+
+  const redirectToPrevPortfolio = () => {
+    window.location.href = "https://olkruglova.github.io/portfolio-fend/";
+  };
 
   return (
     <div
@@ -17,11 +26,24 @@ function Footer() {
       className="h-screen w-full flex flex-row justify-end bg-white dark:bg-dark-blue shadow-top relative"
     >
       <ContactForm />
-      <div className="w-full h-10 pb-10 pr-40 flex flex-row justify-end items-center bg-transparent absolute bottom-0 left-0">
-        <p className="text-dark-blue dark:text-light-blue dark:font-thin">
+      <div className="w-full h-10 pb-10 pr-40 flex flex-row justify-end items-center bg-transparent absolute bottom-0 left-0 text-dark-blue dark:text-light-blue">
+        <p className=" dark:font-thin">
           <span className="tracking-widest text-sm uppercase">©&nbsp;Portfolio O.K.&nbsp;|&nbsp;</span>
           <span>{thisYear}</span>
         </p>
+        <div className="relative cursor-pointer ml-3 ">
+          <FontAwesomeIcon
+            icon={faClockRotateLeft}
+            style={{ width: "22px", height: "22px" }}
+            spin
+            spinReverse
+            onMouseEnter={() => setIsPastIconHovered(true)}
+            onMouseLeave={() => setIsPastIconHovered(false)}
+            onClick={() => redirectToPrevPortfolio()}
+          />
+
+          {isPastIconHovered && <Tooltip text="Go back in time..." />}
+        </div>
       </div>
     </div>
   );
