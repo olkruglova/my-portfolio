@@ -28,8 +28,8 @@
     "projects": {
       "pixelArt": {
         "name": "pixelArt",
-        "title": "Twórca Sztuki Pikselowej",
-        "description": "Twórca Sztuki Pikselowej to kreatywne narzędzie, które pozwala użytkownikom projektować i tworzyć własną sztukę pikselową. Użytkownicy mogą wybierać kolory z palety i wypełniać siatkę, tworząc obrazy, wzory lub postacie. Spróbuj stworzyć coś pięknego z tym narzędziem do sztuki pikselowej."
+        "title": "Pixel Art Maker",
+        "description": "Pixel Art Maker to kreatywne narzędzie, które pozwala użytkownikom projektować i tworzyć własną sztukę pikselową. Użytkownicy mogą wybierać kolory z palety i wypełniać siatkę, tworząc obrazy, wzory lub postacie. Spróbuj stworzyć coś pięknego z tym narzędziem do sztuki pikselowej."
       },
       "matchingGame": {
         "name": "matchingGame",

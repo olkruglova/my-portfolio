@@ -3,7 +3,7 @@ import Experience from "../Components/Experience";
 
 function Profile() {
   const yearsAgo = new Date().getFullYear() - 2017;
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <>
