@@ -12,9 +12,9 @@
     "description": {
       "line1": "I'm a front-end developer based in Poznan, Poland.",
       "line2": "I'm passionate about pixel-perfect, beautiful interfaces.",
-      "line3": "{yearsAgo} years ago I decided to try myself in frontend. Today it is my passion.",
+      "line3": "{{yearsAgo}} years ago I decided to try myself in frontend. Today it is my passion.",
       "line4": {
-        "start": "I work and collaborate with talented people to create digital products and ",
+        "start": "I work and collaborate with talented people to create web applications and ",
         "end": "I love what I do."
       }
     }
@@ -22,7 +22,7 @@
   "projects": {
     "title": "Projects",
     "description": {
-      "line1": "Here are some of the projects I’ve worked on over time, both past and present.",
+      "line1": "Here are some of the projects I’ve worked on in my free time, both past and present.",
       "line2": "Feel free to explore them."
     },
     "projects": {
@@ -47,10 +47,10 @@
         "jobTitle": "Frontend software engineer",
         "clientLocation": "England",
         "sector": "Aerospace",
-        "description": "Integrated Lifing is a platform for engines fleets monitoring. Supports engine removal planning and engineering assessment to support Red-Top and safety investigations. Supports operational readiness and planning of the aircraft",
-        "years": "2022 - {thisYear}",
+        "description": "Platform for engines fleets monitoring. Supports engine removal planning and engineering assessment to support Red-Top and safety investigations. Supports operational readiness and planning of the aircraft",
+        "years": "2022 - {{thisYear}}",
         "responsibilities": [
-          "Utilizing Angular framework, particularly Angular 15 and above, to rewrite and optimize existing JavaScript application",
+          "Utilizing Angular framework, particularly Angular 14 and above, to rewrite and optimize existing JavaScript application",
           "Creating web components using Typescript and KendoUI",
           "Implementing UI features using Angular and PrimeNG",
           "Managing dependencies and libraries within the Angular ecosystem, ensuring compatibility and optimal performance",
@@ -72,7 +72,8 @@
           "ES6",
           "SCSS",
           "Jasmine",
-          "Karma"
+          "Karma",
+          "Figma"
         ]
       },
       {
@@ -89,7 +90,7 @@
           "Crafting comprehensive unit tests",
           "Participating in code reviews"
         ],
-        "tools": ["React", "Typescript", "Material-UI", "HTML5", "Karma", "Jest"]
+        "tools": ["React", "Typescript", "Material-UI", "HTML5", "Karma", "Jest", "Adobe"]
       },
       {
         "jobTitle": "Frontend developer",
@@ -98,7 +99,7 @@
         "description": "AntiFraud Hub is a fraud prevention platform.",
         "years": "2019",
         "responsibilities": [
-          "Updating the AngularJS application components to a newer version (Angular 2)",
+          "Updating the AngularJS application components to version (Angular 2)",
           "Improving existing web application, enhancing its functionality and appearance",
           "Implementation of individual components"
         ],
@@ -120,13 +121,14 @@
       }
     ]
   },
-  "getInTouch": {
-    "title": "Get in touch",
-    "form": {
-      "name": "Name",
-      "email": "E-mail",
-      "message": "Message",
-      "submit": "Say Hello"
-    }
-  }
+  "contactForm": {
+    "title": "Let's get in touch",
+    "name": "Name",
+    "email": "E-mail",
+    "message": "Message",
+    "submit": "Say Hello",
+    "sending": "Sending..."
+  },
+  "experience": "Experience",
+  "goBackInTime": "Go back in time..."
 }

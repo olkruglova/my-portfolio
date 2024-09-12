@@ -1,6 +1,16 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { sendEmail } from "../services/email.service";
 import { NotificationContext } from "../providers/NotificationContext";
+import { useTranslation } from "react-i18next";
+
+interface ContactForm {
+  title: string;
+  name: string;
+  email: string;
+  message: string;
+  submit: string;
+  sending: string;
+}
 
 const FloatingLabelInput = ({ id, label, name, type = "text" }: any) => {
   const [hasContent, setHasContent] = useState(false);
@@ -36,6 +46,14 @@ function ContactForm() {
   const form = useRef<HTMLFormElement | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { setNotification } = useContext(NotificationContext);
+  const { i18n, t } = useTranslation();
+  const [contactForm, setContactForm] = useState<ContactForm>(
+    () => t("contactForm", { returnObjects: true }) as ContactForm
+  );
+
+  useEffect(() => {
+    setContactForm(t("contactForm", { returnObjects: true }) as ContactForm);
+  }, [i18n.language]);
 
   const send = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,18 +88,18 @@ function ContactForm() {
 
   return (
     <section className="flex flex-col w-[40rem] mr-40 pt-48">
-      <h1 className="tracking-widest uppercase text-center text-3xl mb-4">Get in touch</h1>
+      <h1 className="tracking-widest uppercase text-center text-3xl mb-4">{contactForm.title}</h1>
       <form ref={form} className="flex flex-col mt-8" onSubmit={send}>
-        <FloatingLabelInput id="name" label="Name" name="user_name" />
-        <FloatingLabelInput id="email" label="E-mail" type="user_email" />
-        <FloatingLabelInput id="message" label="Message" name="message" />
+        <FloatingLabelInput id="name" label={contactForm.name} name="user_name" />
+        <FloatingLabelInput id="email" label={contactForm.email} type="user_email" />
+        <FloatingLabelInput id="message" label={contactForm.message} name="message" />
 
         <button
           className="bg-salmon-dark hover:bg-salmon dark:bg-salmon-100 hover:dark:bg-salmon text-white hover:text-dark dark:text-dark hover:dark:text-white tracking-widest uppercase py-2 mt-8 transition-all duration-300 ease-in-out"
           type="submit"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Sending..." : "Say Hello"}
+          {isSubmitting ? contactForm.sending : contactForm.submit}
         </button>
       </form>
     </section>

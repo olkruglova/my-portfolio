@@ -3,16 +3,10 @@ import { faClockRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Tooltip from "./Tooltip";
-import { redirect } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
-  //   const opt: ArcOptions = {
-  //     color: "#A9D6E5",
-  //     size: "lg",
-  //     strokeWidth: 2,
-  //     animation: true,
-  //     strokeDasharray: "2,10"
-  //   };
+  const { t } = useTranslation();
   const thisYear = new Date().getFullYear();
   const [isPastIconHovered, setIsPastIconHovered] = useState(false);
 
@@ -42,7 +36,7 @@ function Footer() {
             onClick={() => redirectToPrevPortfolio()}
           />
 
-          {isPastIconHovered && <Tooltip text="Go back in time..." />}
+          {isPastIconHovered && <Tooltip text={t("goBackInTime")} />}
         </div>
       </div>
     </div>

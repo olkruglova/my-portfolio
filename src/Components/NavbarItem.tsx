@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function NavbarItem({ item }: any) {
-  const { name, url } = item;
+  const { title, url } = item;
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -32,7 +32,7 @@ function NavbarItem({ item }: any) {
               </div>
             )}
 
-            <div className="ml-3">{name}</div>
+            <div className="ml-3">{title}</div>
           </div>
         )}
       </NavLink>

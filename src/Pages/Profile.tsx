@@ -5,6 +5,8 @@ function Profile() {
   const yearsAgo = new Date().getFullYear() - 2017;
   const { t } = useTranslation();
 
+  const profileDescription = t("profile.description", { returnObjects: true, yearsAgo }) as any;
+
   return (
     <>
       <div className="flex flex-col py-10 justify-end items-end">
@@ -12,21 +14,13 @@ function Profile() {
         <p className="text-sm text-light-blue-500 dark:text-light-blue mb-10">{t("profile.jobTitle")}</p>
 
         <div className="text-md mt-8 flex flex-col justify-end items-end">
-          <p className="mb-2">{t("profile.description.line1")}</p>
-          <p className="mb-2">{t("profile.description.line2")}</p>
-          <p className="mb-2">{t("profile.description.line3").replace("{yearsAgo}", yearsAgo.toString())}</p>
-          <p className="mb-2">
-            {t("profile.description.line4.start")}
-            <strong className="text-light-blue-500 dark:text-light-blue mb-2">
-              {t("profile.description.line4.end")}
-            </strong>
+          <p className="mb-2 text-right">{profileDescription.line1}</p>
+          <p className="mb-2 text-right">{profileDescription.line2}</p>
+          <p className="mb-2 text-right">{profileDescription.line3}</p>
+          <p className="mb-2 text-right">
+            {profileDescription.line4.start}
+            <strong className="text-light-blue-500 dark:text-light-blue mb-2">{profileDescription.line4.end}</strong>
           </p>
-          {/* <p className="mt-8">
-            Check out my previous profile
-            <a href="https://olkruglova.github.io/portfolio-fend" target="_blank" rel="noopener noreferrer">
-              <strong className="text-light-blue-500 dark:text-light-blue mb-2">&nbsp;here.</strong>
-            </a>
-          </p> */}
         </div>
       </div>
 
