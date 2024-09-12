@@ -9,6 +9,7 @@ import Notification from "../Components/Notification";
 import GoToTopButton from "../Components/GoToTopButton";
 import { ThemeProvider } from "../providers/ThemeProvider";
 import { ThemeContext } from "../providers/ThemeContext";
+import Loader from "../Components/Loader";
 
 function App() {
   return (
@@ -73,7 +74,7 @@ function MainContent() {
               <div className="flex flex-col w-[calc(100%-1px)]">
                 <Toolbar />
 
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loader />}>
                   <Routes>
                     <Route path="/" Component={Profile} />
                     <Route path="/projects" Component={Projects} />
