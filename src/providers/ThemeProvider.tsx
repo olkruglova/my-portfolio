@@ -12,8 +12,6 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }): 
     const userTheme = localStorage.getItem("theme");
     const systemDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    console.log(userTheme, systemDarkTheme);
-
     if (userTheme === "dark" || systemDarkTheme) {
       setIsDarkTheme(true);
     } else if (!userTheme) {
