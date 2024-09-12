@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { ArcOptions, Content } from "./Experience";
 import { ThemeContext } from "../providers/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 function Arc({ options }: { options: ArcOptions }) {
   const { isDarkTheme } = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   const { color, size, animation, strokeWidth, strokeDasharray, animationReverse, content } = options;
   const pathRef = useRef<SVGPathElement>(null);
@@ -84,13 +86,13 @@ function Arc({ options }: { options: ArcOptions }) {
           <text
             x="-267"
             y="10"
-            fill={isDarkTheme ? "white" : "#000d17"}
+            fill={isDarkTheme ? "white" : "#012A4A"}
             textAnchor="middle"
             alignmentBaseline="middle"
             className="text-lg"
             style={{ transform: "rotate(-90deg)" }}
           >
-            Experience
+            {t("experience")}
           </text>
         ) : null}
 

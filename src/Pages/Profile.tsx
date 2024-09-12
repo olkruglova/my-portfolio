@@ -14,10 +14,10 @@ function Profile() {
         <p className="text-sm text-light-blue-500 dark:text-light-blue mb-10">{t("profile.jobTitle")}</p>
 
         <div className="text-md mt-8 flex flex-col justify-end items-end">
-          <p className="mb-2">{profileDescription.line1}</p>
-          <p className="mb-2">{profileDescription.line2}</p>
-          <p className="mb-2">{profileDescription.line3}</p>
-          <p className="mb-2">
+          <p className="mb-2 text-right">{profileDescription.line1}</p>
+          <p className="mb-2 text-right">{profileDescription.line2}</p>
+          <p className="mb-2 text-right">{profileDescription.line3}</p>
+          <p className="mb-2 text-right">
             {profileDescription.line4.start}
             <strong className="text-light-blue-500 dark:text-light-blue mb-2">{profileDescription.line4.end}</strong>
           </p>

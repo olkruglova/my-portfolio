@@ -22,7 +22,7 @@
   "projects": {
     "title": "Projects",
     "description": {
-      "line1": "Here are some of the projects I’ve worked on over time, both past and present.",
+      "line1": "Here are some of the projects I’ve worked on in my free time, both past and present.",
       "line2": "Feel free to explore them."
     },
     "projects": {
@@ -47,7 +47,7 @@
         "jobTitle": "Frontend software engineer",
         "clientLocation": "England",
         "sector": "Aerospace",
-        "description": "Integrated Lifing is a platform for engines fleets monitoring. Supports engine removal planning and engineering assessment to support Red-Top and safety investigations. Supports operational readiness and planning of the aircraft",
+        "description": "Platform for engines fleets monitoring. Supports engine removal planning and engineering assessment to support Red-Top and safety investigations. Supports operational readiness and planning of the aircraft",
         "years": "2022 - {{thisYear}}",
         "responsibilities": [
           "Utilizing Angular framework, particularly Angular 14 and above, to rewrite and optimize existing JavaScript application",
@@ -128,5 +128,7 @@
     "message": "Message",
     "submit": "Say Hello",
     "sending": "Sending..."
-  }
+  },
+  "experience": "Experience",
+  "goBackInTime": "Go back in time..."
 }

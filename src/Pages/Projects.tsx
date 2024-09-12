@@ -28,8 +28,8 @@ function Projects() {
         <h1 className="text-4xl">{t("projects.title")}</h1>
 
         <div className="text-md mt-8 flex flex-col justify-end items-end">
-          <p className="mb-2">{t("projects.description.line1")}</p>
-          <p className="mb-2">{t("projects.description.line2")}</p>
+          <p className="mb-2 text-right">{t("projects.description.line1")}</p>
+          <p className="mb-2 text-right">{t("projects.description.line2")}</p>
         </div>
 
         <div className="w-full mt-[10rem] relative">

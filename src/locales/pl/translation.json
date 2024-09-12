@@ -22,7 +22,7 @@
   "projects": {
     "title": "Projekty",
     "description": {
-      "line1": "Poniżej znajduje się lista projektów, nad którymi pracowałem na przestrzeni czasu, zarówno w przeszłości, jak i obecnie.",
+      "line1": "Poniżej znajduje się lista projektów, nad którymi pracowałam w wolnym czasie, zarówno w przeszłości, jak i obecnie.",
       "line2": "Zapraszam do zapoznania się z nimi."
     },
     "projects": {
@@ -128,5 +128,7 @@
     "message": "Wiadomość",
     "submit": "Powiedz cześć",
     "sending": "Wysyłanie..."
-  }
+  },
+  "experience": "Doświadczenie",
+  "goBackInTime": "Wróć w czasie..."
 }
