@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import ProjectCard from "../Components/ProjectCard";
 
 function Projects() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const projects = [
     {

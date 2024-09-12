@@ -2,7 +2,7 @@
   "navItems": {
     "profile": "Profil",
     "projects": "Projekty",
-    "resume": "CV",
+    "resume": "Résumé",
     "getInTouch": "Kontakt"
   },
   "profile": {
@@ -11,10 +11,10 @@
     "title": "Profil",
     "description": {
       "line1": "Jestem frontend deweloperem z Poznania, Polska.",
-      "line2": "Pasjonuję się idealnymi pod względem pikseli, pięknymi interfejsami.",
-      "line3": "{yearsAgo} lat temu postanowiłam spróbować swoich sił we frontendzie. Dziś to moja pasja.",
+      "line2": "Pasjonują mnie interfejsy piękne i dopracowane pixel-perfect.",
+      "line3": "{{yearsAgo}} lat temu postanowiłam spróbować swoich sił we frontendzie. Dziś to moja pasja.",
       "line4": {
-        "start": "Pracuję i współpracuję z utalentowanymi ludźmi, aby tworzyć produkty cyfrowe, i ",
+        "start": "Pracuję i współpracuję z utalentowanymi ludźmi, aby tworzyć aplikacje internetowe, i ",
         "end": "kocham to, co robię."
       }
     }
@@ -22,14 +22,14 @@
   "projects": {
     "title": "Projekty",
     "description": {
-      "line1": "Oto niektóre z projektów, nad którymi pracowałam na przestrzeni lat, zarówno przeszłe, jak i obecne.",
+      "line1": "Poniżej znajduje się lista projektów, nad którymi pracowałem na przestrzeni czasu, zarówno w przeszłości, jak i obecnie.",
       "line2": "Zapraszam do zapoznania się z nimi."
     },
     "projects": {
       "pixelArt": {
         "name": "pixelArt",
         "title": "Pixel Art Maker",
-        "description": "Pixel Art Maker to kreatywne narzędzie, które pozwala użytkownikom projektować i tworzyć własną sztukę pikselową. Użytkownicy mogą wybierać kolory z palety i wypełniać siatkę, tworząc obrazy, wzory lub postacie. Spróbuj stworzyć coś pięknego z tym narzędziem do sztuki pikselowej."
+        "description": "Pixel Art Maker to kreatywne narzędzie, które pozwala użytkownikom projektować i tworzyć własną grafikę pikselową. Użytkownicy mogą wybierać kolory z palety i wypełniać siatkę, tworząc obrazy, wzory lub postacie. Spróbuj stworzyć coś pięknego z tym narzędziem do grafiki pikselowej."
       },
       "matchingGame": {
         "name": "matchingGame",
@@ -39,18 +39,18 @@
     }
   },
   "resume": {
-    "title": "CV",
+    "title": "Résumé",
     "previewTooltip": "Podgląd PDF",
     "downloadTooltip": "Pobierz PDF",
     "jobs": [
       {
-        "jobTitle": "Frontend inżynier oprogramowania",
+        "jobTitle": "Frontend software engineer",
         "clientLocation": "Anglia",
         "sector": "Lotnictwo",
-        "description": "Integrated Lifing to platforma do monitorowania flot silników. Wspiera planowanie wymiany silników i ocenę inżynieryjną, wspiera dochodzenia związane z Red-Top i bezpieczeństwem oraz planowanie gotowości operacyjnej i planowania samolotów.",
-        "years": "2022 - {thisYear}",
+        "description": "Platforma do monitorowania flot silników. Wspiera planowanie wymiany silników i ocenę inżynieryjną, wspiera dochodzenia związane z Red-Top i bezpieczeństwem oraz planowanie gotowości operacyjnej i planowania samolotów.",
+        "years": "2022 - {{thisYear}}",
         "responsibilities": [
-          "Korzystanie z frameworka Angular, szczególnie Angular 15 i nowszych, w celu przepisania i optymalizacji istniejącej aplikacji JavaScript",
+          "Korzystanie z frameworka Angular, szczególnie Angular 14 i nowszych, w celu przepisania i optymalizacji istniejącej aplikacji JavaScript",
           "Tworzenie komponentów internetowych przy użyciu Typescript i KendoUI",
           "Implementacja funkcji interfejsu użytkownika przy użyciu Angular i PrimeNG",
           "Zarządzanie zależnościami i bibliotekami w ekosystemie Angular, zapewniając kompatybilność i optymalną wydajność",
@@ -72,7 +72,8 @@
           "ES6",
           "SCSS",
           "Jasmine",
-          "Karma"
+          "Karma",
+          "Figma"
         ]
       },
       {
@@ -89,7 +90,7 @@
           "Tworzenie kompleksowych testów jednostkowych",
           "Uczestnictwo w przeglądach kodu"
         ],
-        "tools": ["React", "Typescript", "Material-UI", "HTML5", "Karma", "Jest"]
+        "tools": ["React", "Typescript", "Material-UI", "HTML5", "Karma", "Jest", "Adobe"]
       },
       {
         "jobTitle": "Frontend developer",
@@ -98,7 +99,7 @@
         "description": "AntiFraud Hub to platforma zapobiegania oszustwom.",
         "years": "2019",
         "responsibilities": [
-          "Aktualizacja komponentów aplikacji AngularJS do nowszej wersji (Angular 2)",
+          "Aktualizacja komponentów aplikacji AngularJS do wersji (Angular 2)",
           "Poprawa istniejącej aplikacji internetowej, ulepszanie jej funkcjonalności i wyglądu",
           "Implementacja poszczególnych komponentów"
         ],
@@ -120,13 +121,12 @@
       }
     ]
   },
-  "getInTouch": {
-    "title": "Kontakt",
-    "form": {
-      "name": "Imię",
-      "email": "E-mail",
-      "message": "Wiadomość",
-      "submit": "Powiedz cześć"
-    }
+  "contactForm": {
+    "title": "Bądźmy w kontakcie",
+    "name": "Imię",
+    "email": "E-mail",
+    "message": "Wiadomość",
+    "submit": "Powiedz cześć",
+    "sending": "Wysyłanie..."
   }
 }

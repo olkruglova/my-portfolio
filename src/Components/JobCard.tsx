@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
-function JobCard({ job, index }: any) {
+function JobCard({ job }: any) {
   const [isOnHover, setIsOnHover] = useState<boolean>(false);
 
   return (
@@ -38,10 +38,11 @@ function JobCard({ job, index }: any) {
           <h2 className="text-2xl font-semibold text-dark-blue dark:text-light-blue">{job.jobTitle}</h2>
           <div className="flex flex-col mt-4">
             <div className="text-sm">
-              <strong className="text-dark-blue dark:text-light-blue">Sector:</strong> {job.sector}
+              <strong className="text-dark-blue dark:text-light-blue">Sector: </strong>
+              {job.sector}
             </div>
             <div className="text-sm mt-2">
-              <strong className="text-dark-blue dark:text-light-blue">Description:</strong>
+              <strong className="text-dark-blue dark:text-light-blue">Description: </strong>
               {job.description}
             </div>
             <div className="flex flex-row justify-start mt-5">
