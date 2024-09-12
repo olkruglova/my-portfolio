@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router, BrowserRouter } from "react-router-dom";
 import { lazy, Suspense, useContext, useEffect, useRef, useState } from "react";
 import Toolbar from "../Components/Toolbar";
 import Navbar from "../Components/Navbar";
@@ -13,7 +13,7 @@ import Loader from "../Components/Loader";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/my-portfolio">
       <ThemeProvider>
         <MainContent />
       </ThemeProvider>
