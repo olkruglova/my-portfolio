@@ -28,8 +28,8 @@ function Resume() {
   const jobs = t("resume.jobs", { returnObjects: true, thisYear }) as Job[];
 
   const downloadPDF = () => {
-    const fileUrl = "./src/assets/docs/Olga_Kruhlova_CV.pdf";
-    const fileName = "Olga_Kruhlova_CV.pdf";
+    const fileUrl = "./src/assets/docs/Olga_Kruglova_CV.pdf";
+    const fileName = "Olga_Kruglova_CV.pdf";
 
     downloadFile(fileUrl, fileName);
   };
