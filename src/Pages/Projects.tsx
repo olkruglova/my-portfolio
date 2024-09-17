@@ -10,15 +10,15 @@ function Projects() {
       description: t("projects.projects.pixelArt.description"),
       url: "https://olkruglova.github.io/canvas-pixel-art/",
       codeURL: "https://github.com/olkruglova/canvas-pixel-art",
-      background: "./src/assets/images/pixel_art.png",
-      tags: ["Javascript", "CSS"]
+      background: "./assets/images/pixel_art_maker.png",
+      tags: ["Javascript", "jQuery", "CSS"]
     },
     {
       title: t("projects.projects.matchingGame.title"),
       description: t("projects.projects.matchingGame.description"),
       url: "https://olkruglova.github.io/my-memory-game-2/",
       codeURL: "https://github.com/olkruglova/my-memory-game-2",
-      background: "./src/assets/images/matching_game.png",
+      background: "./assets/images/matching_game.png",
       tags: ["Javascript", "CSS"]
     }
   ];
