@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter as Router, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { lazy, Suspense, useContext, useEffect, useRef, useState } from "react";
 import Toolbar from "../Components/Toolbar";
 import Navbar from "../Components/Navbar";
@@ -59,11 +59,11 @@ function MainContent() {
 
   return (
     <NotificationProvider>
-      <div className="relative text-dark-blue dark:text-white">
-        <div className="bg-main-bg bg-cover bg-no-repeat w-full h-[calc(100vh+700px)] overflow-x-hidden"></div>
+      <div className="relative text-dark-blue dark:text-white min-h-screen">
+        <div className="absolute inset-0 bg-main-bg bg-cover bg-no-repeat w-full h-full min-h-[calc(100vh -1px)]"></div>
         <div
           ref={overlayRef}
-          className="absolute top-0 left-0 w-full h-[calc(100vh+700px)] pointer-events-auto"
+          className="relative w-full h-auto pointer-events-auto min-h-[calc(100vh -1px)]"
           style={{
             background: isDarkTheme
               ? `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 200px, rgba(0,0,0,0.95) 200px)`
