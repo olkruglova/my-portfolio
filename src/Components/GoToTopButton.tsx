@@ -31,7 +31,7 @@ function GoToTopButton() {
     <div
       className={`go-to-top-button ${isVisible ? "visible" : "invisible"} ${
         isScrolling ? "scrolling" : ""
-      } fixed bottom-20 right-40 z-50 cursor-pointer`}
+      } fixed bottom-20 z-50 cursor-pointer xs:right-14 lg:right-40`}
       onClick={scrollToTop}
       onScroll={() => setIsScrolling(true)}
     >

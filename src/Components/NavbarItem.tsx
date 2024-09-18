@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-function NavbarItem({ item }: any) {
+function NavbarItem({ item, callback }: any) {
   const { title, url } = item;
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div onMouseEnter={() => setIsHovered(true)} onMouseOut={() => setIsHovered(false)}>
+    <div onMouseEnter={() => setIsHovered(true)} onMouseOut={() => setIsHovered(false)} onClick={callback}>
       <NavLink to={url || "/"}>
         {({ isActive }) => (
           <div

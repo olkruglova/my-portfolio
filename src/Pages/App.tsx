@@ -10,6 +10,7 @@ import GoToTopButton from "../Components/GoToTopButton";
 import { ThemeProvider } from "../providers/ThemeProvider";
 import { ThemeContext } from "../providers/ThemeContext";
 import Loader from "../Components/Loader";
+import useDevice from "../hooks/useDevice";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function MainContent() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const overlayRef = useRef<HTMLDivElement>(null);
   const { isDarkTheme } = useContext(ThemeContext);
+
+  const isMobile = useDevice("mobile");
+  const isTablet = useDevice("tablet");
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -66,11 +70,13 @@ function MainContent() {
               : "rgba(255,255,255,0.85)"
           }}
         >
-          <div className="flex flex-row px-40 py-20">
-            <div className="flex-[20%] min-w-[173px] flex justify-start">
-              <Navbar />
-            </div>
-            <div className="flex-[80%] flex justify-end">
+          <div className="flex flex-row xs:px-14 lg:px-40 py-20">
+            {!isTablet && !isMobile && (
+              <div className="flex-[20%] min-w-[173px] flex justify-start">
+                <Navbar />
+              </div>
+            )}
+            <div className="flex-[80%] w-full flex justify-end">
               <div className="flex flex-col w-[calc(100%-1px)]">
                 <Toolbar />
 
@@ -87,7 +93,7 @@ function MainContent() {
         </div>
         <Footer />
       </div>
-      <Socials />
+      {!isTablet && !isMobile && <Socials />}
       <Notification />
       <GoToTopButton />
     </NotificationProvider>

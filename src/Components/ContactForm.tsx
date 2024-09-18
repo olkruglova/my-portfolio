@@ -87,7 +87,7 @@ function ContactForm() {
   };
 
   return (
-    <section className="flex flex-col w-[40rem] mr-40 pt-48">
+    <section className={`flex flex-col xs:w-3/4 xs:mx-auto lg:w-[40rem] lg:mr-40 pt-48`}>
       <h1 className="tracking-widest uppercase text-center text-3xl mb-4">{contactForm.title}</h1>
       <form ref={form} className="flex flex-col mt-8" onSubmit={send}>
         <FloatingLabelInput id="name" label={contactForm.name} name="user_name" />

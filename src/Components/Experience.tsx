@@ -63,7 +63,7 @@ function Experience() {
   ];
 
   return (
-    <div className="w-full h-[500px] relative mt-40">
+    <div className="w-full h-[500px] relative xs:mt-6 md:mt-10 lg:mt-40">
       {arcOptions.map((options, index) => (
         <Arc key={index} options={options} />
       ))}
