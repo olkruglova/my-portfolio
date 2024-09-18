@@ -70,13 +70,13 @@ function MainContent() {
               : "rgba(255,255,255,0.85)"
           }}
         >
-          <div className={`flex flex-row ${isTablet || isMobile ? "px-14" : "px-40"} py-20`}>
+          <div className="flex flex-row xs:px-14 lg:px-40 py-20">
             {!isTablet && !isMobile && (
               <div className="flex-[20%] min-w-[173px] flex justify-start">
                 <Navbar />
               </div>
             )}
-            <div className="flex-[80%] flex justify-end">
+            <div className="flex-[80%] w-full flex justify-end">
               <div className="flex flex-col w-[calc(100%-1px)]">
                 <Toolbar />
 

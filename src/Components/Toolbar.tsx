@@ -38,7 +38,7 @@ function Toolbar() {
   }, [i18n]);
 
   return (
-    <div className={`flex align-middle ${isMobile || isTablet ? "justify-between" : "justify-end"}`}>
+    <div className="flex align-middle xs:justify-between lg:justify-end">
       {(isMobile || isTablet) && (
         <Bars3Icon
           className="dark:text-light-blue text-dark-blue size-8 cursor-pointer"

@@ -12,7 +12,7 @@ export default function useDevice(deviceType: string) {
       case "desktop":
         return "only screen and (min-width: 1281px)";
       default:
-        return "only screen and (min-width: 320px)"; // default to mobile
+        return "only screen and (min-width: 320px)";
     }
   })();
 

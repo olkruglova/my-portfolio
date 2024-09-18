@@ -26,9 +26,8 @@ function Footer() {
       {(isTablet || isMobile) && <Socials />}
       <ContactForm />
       <div
-        className={`w-full h-10 pb-10 ${
-          isMobile || isTablet ? "pr-14" : "pr-40"
-        }  flex flex-row justify-end items-center bg-transparent absolute bottom-0 left-0 text-dark-blue dark:text-light-blue`}
+        className="w-full h-10 pb-10 xs:pr-14 lg:pr-40
+        flex flex-row justify-end items-center bg-transparent absolute bottom-0 left-0 text-dark-blue dark:text-light-blue"
       >
         <p className=" dark:font-thin">
           <span className="tracking-widest text-sm uppercase">©&nbsp;Portfolio O.K.&nbsp;|&nbsp;</span>
