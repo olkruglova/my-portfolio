@@ -55,7 +55,10 @@ function Socials() {
   }, []);
 
   return (
-    <div id="socials" className="flex flex-col xs:absolute xs:left-14 lg:fixed lg:left-40 bottom-20  social z-50">
+    <div
+      id="socials"
+      className="flex xs:flex-row md:flex-col xs:absolute xs:left-14 lg:fixed lg:left-40 bottom-20 social z-50"
+    >
       {socialItems.map((item, index) => (
         <a
           key={index}
@@ -64,7 +67,7 @@ function Socials() {
             iconsInView[item.id]
               ? "dark:text-light-blue text-dark-blue-500 hover:text-light-blue hover:dark:text-dark"
               : "text-dark-blue dark:text-dark-blue-500 hover:text-light-blue hover:dark:text-light-blue "
-          } transition-all duration-300 ease-in-out`}
+          } transition-all duration-300 ease-in-out xs:mr-3 lg:mr-0`}
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
