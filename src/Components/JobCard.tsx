@@ -10,7 +10,7 @@ function JobCard({ job }: any) {
       onMouseEnter={() => setIsOnHover(true)}
       onMouseLeave={() => setIsOnHover(false)}
     >
-      <div className="basis-2/12 flex flex-row justify-center items-center py-2 pr-10">
+      <div className="w-[20%] flex flex-row justify-center items-center py-2 pr-10">
         <p
           className={`text-xl ${isOnHover ? "text-salmon-dark dark:text-salmon-100 font-bold" : "text-light-blue-500"}`}
         >
@@ -18,7 +18,7 @@ function JobCard({ job }: any) {
         </p>
       </div>
 
-      <div className={`basis-10/12 flex flex-row transition-all duration-300 ease-in-out`}>
+      <div className={`w-[80%] flex flex-row transition-all duration-300 ease-in-out`}>
         <div className="relative flex flex-row items-center">
           <div
             className={`divider ${
@@ -46,7 +46,7 @@ function JobCard({ job }: any) {
               {job.description}
             </div>
             <div className="flex flex-row justify-start mt-5">
-              <div className={`w-[450px] flex-col duration-300 ease-in-out pr-2`}>
+              <div className={`lg:w-[450px] flex-col duration-300 ease-in-out pr-2`}>
                 <div className="flex flex-row">
                   <ChevronRightIcon
                     className={`w-5 h-5 text-dark-blue dark:text-light-blue ${
@@ -68,7 +68,7 @@ function JobCard({ job }: any) {
                 </ul>
               </div>
 
-              <div className={`w-[300px] flex-col duration-300 ease-in-out pl-2`}>
+              <div className={`lg:w-[300px] flex-col duration-300 ease-in-out pl-2`}>
                 <div className="flex flex-row">
                   <ChevronRightIcon
                     className={`w-5 h-5 text-dark-blue dark:text-light-blue ${

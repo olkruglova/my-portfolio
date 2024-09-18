@@ -10,28 +10,28 @@ function ProjectCard({ project, index }: any) {
 
   return (
     <div
-      className={`flex flex-row flex-wrap w-full mb-40 ${isEven ? "" : "flex-row-reverse"}`}
+      className={`flex xs:flex-col md:flex-row flex-wrap w-full md:mb-40 ${isEven ? "" : "flex-row-reverse"}`}
       onMouseEnter={() => setIsOnHover(true)}
       onMouseLeave={() => setIsOnHover(false)}
     >
       <div
-        className={`basis-1/2 h-80 py-10 duration-300 ease-in-out ${
+        className={`md:basis-1/2 h-80 py-10 duration-300 ease-in-out ${
           isEven
             ? isOnHover
-              ? "border-gradient-salmon pl-10 pr-5"
-              : "border-gradient pl-10 pr-5"
+              ? "md:border-gradient-salmon md:pl-10 md:pr-5"
+              : "md:border-gradient md:pl-10 md:pr-5"
             : isOnHover
-            ? "border-gradient-salmon-revert pl-5 pr-10"
-            : "border-gradient-revert pl-5 pr-10"
+            ? "md:border-gradient-salmon-revert md:pl-5 md:pr-10"
+            : "md:border-gradient-revert md:pl-5 md:pr-10"
         } `}
       >
         <div className="w-full h-full flip-box bg-transparent">
           <div className="relative w-full h-full flip-box-inner cursor-pointer">
-            <div className="absolute w-full h-full flip-box-front bg-opacity-90 flex flex-col justify-center items-center bg-gradient-to-tr from-dark-blue via-transparent to-dark-blue">
+            <div className="absolute xs:h-60 w-full h-full flip-box-front bg-opacity-90 flex flex-col justify-center items-center bg-gradient-to-tr from-dark-blue via-transparent to-dark-blue">
               <h2 className="text-2xl">{title}</h2>
             </div>
 
-            <div className="absolute w-full h-full flip-box-back">
+            <div className="absolute xs:h-60 w-full h-full flip-box-back">
               <a href={url} target="_blank" rel="noopener noreferrer">
                 <div className="relative w-full h-full">
                   <div
@@ -47,14 +47,14 @@ function ProjectCard({ project, index }: any) {
       </div>
 
       <div
-        className={`basis-1/2 h-80 py-10 duration-300 ease-in-out ${
+        className={`md:basis-1/2 h-80 py-10 duration-300 ease-in-out ${
           isEven
             ? isOnHover
-              ? "border-gradient-salmon-revert pl-5 pr-10"
-              : "border-gradient-revert pl-5 pr-10"
+              ? "md:border-gradient-salmon-revert md:pl-5 md:pr-10"
+              : "md:border-gradient-revert md:pl-5 md:pr-10"
             : isOnHover
-            ? "border-gradient-salmon pl-10 pr-5"
-            : "border-gradient pl-10 pr-5"
+            ? "md:border-gradient-salmon md:pl-10 md:pr-5"
+            : "md:border-gradient md:pl-10 md:pr-5"
         }`}
       >
         <p className="text-sm">{description}</p>

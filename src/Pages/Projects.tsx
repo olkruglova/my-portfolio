@@ -32,7 +32,7 @@ function Projects() {
           <p className="mb-2 text-right">{t("projects.description.line2")}</p>
         </div>
 
-        <div className="w-full mt-[10rem] relative">
+        <div className="w-full xs:mt-[4rem] md:mt-[10rem] relative">
           {projects.map((project, index) => (
             <ProjectCard key={`${index}-${project.title}`} project={project} index={index} />
           ))}
