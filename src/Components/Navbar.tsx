@@ -17,7 +17,11 @@ interface NavItem {
   getInTouch: string;
 }
 
-function Navbar() {
+interface NavbarProps {
+  callback?: () => void;
+}
+
+function Navbar({ callback }: NavbarProps) {
   const [isHovered, setIsHovered] = useState(false);
   const { i18n, t } = useTranslation();
   const [navbarItems, setNavbarItems] = useState<NavbarItem[]>([]);
@@ -41,6 +45,10 @@ function Navbar() {
   const handleScrollToFooter = (e: any) => {
     e.preventDefault();
     footer?.scrollIntoView({ behavior: "smooth" });
+
+    if (callback) {
+      callback();
+    }
   };
 
   return (
@@ -70,7 +78,7 @@ function Navbar() {
                 <div className="ml-3">{item.title}</div>
               </div>
             ) : (
-              <NavbarItem key={item.id} item={item} />
+              <NavbarItem key={item.id} item={item} callback={callback} />
             )}
           </li>
         ) : null
