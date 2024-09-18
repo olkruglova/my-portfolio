@@ -15,7 +15,7 @@ function ProjectCard({ project, index }: any) {
       onMouseLeave={() => setIsOnHover(false)}
     >
       <div
-        className={`md:basis-1/2 h-80 py-10 duration-300 ease-in-out ${
+        className={`md:basis-1/2 xs:h-60 md:h-80 md:py-10 duration-300 ease-in-out ${
           isEven
             ? isOnHover
               ? "md:border-gradient-salmon md:pl-10 md:pr-5"
@@ -47,7 +47,7 @@ function ProjectCard({ project, index }: any) {
       </div>
 
       <div
-        className={`md:basis-1/2 h-80 py-10 duration-300 ease-in-out ${
+        className={`md:basis-1/2 xs:h-60 xs:py-4 md:h-80 md:py-10 duration-300 ease-in-out ${
           isEven
             ? isOnHover
               ? "md:border-gradient-salmon-revert md:pl-5 md:pr-10"

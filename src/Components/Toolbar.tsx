@@ -88,7 +88,7 @@ function Toolbar() {
         </li>
       </ul>
       <div
-        className={`flex justify-between w-full h-auto absolute top-0 left-0 px-24 py-20 z-50 dark:bg-dark bg-white shadow-xl transition-all duration-300 ease-in-out ${
+        className={`flex justify-between w-full h-auto absolute top-0 left-0 xs:px-6 md:px-14 lg:px-40 py-10 z-50 dark:bg-dark bg-white shadow-xl transition-all duration-300 ease-in-out ${
           isMenuOpened ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"
         }`}
         style={{

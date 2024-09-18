@@ -70,7 +70,7 @@ function MainContent() {
               : "rgba(255,255,255,0.85)"
           }}
         >
-          <div className="flex flex-row xs:px-14 lg:px-40 py-20">
+          <div className="flex flex-row xs:px-6 md:px-14 lg:px-40 py-20">
             {!isTablet && !isMobile && (
               <div className="flex-[20%] min-w-[173px] flex justify-start">
                 <Navbar />

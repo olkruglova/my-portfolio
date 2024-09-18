@@ -63,11 +63,11 @@ function Socials() {
         <a
           key={index}
           id={item.id}
-          className={`mb-3 ${
+          className={`${
             iconsInView[item.id]
               ? "dark:text-light-blue text-dark-blue-500 hover:text-light-blue hover:dark:text-dark"
               : "text-dark-blue dark:text-dark-blue-500 hover:text-light-blue hover:dark:text-light-blue "
-          } transition-all duration-300 ease-in-out xs:mr-3 lg:mr-0`}
+          } transition-all duration-300 ease-in-out xs:mr-3 lg:mr-0 xs:mb-0 lg:mb-3`}
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"

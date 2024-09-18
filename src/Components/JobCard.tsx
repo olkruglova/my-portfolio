@@ -10,7 +10,7 @@ function JobCard({ job }: any) {
       onMouseEnter={() => setIsOnHover(true)}
       onMouseLeave={() => setIsOnHover(false)}
     >
-      <div className="w-[20%] flex flex-row justify-center items-center py-2 pr-10">
+      <div className="w-[20%] flex flex-row justify-center items-center py-2 xs:pr-4 md:pr-10">
         <p
           className={`text-xl ${isOnHover ? "text-salmon-dark dark:text-salmon-100 font-bold" : "text-light-blue-500"}`}
         >
@@ -34,7 +34,7 @@ function JobCard({ job }: any) {
           ></div>
         </div>
 
-        <div className={`pl-10 py-4 transition-shadow duration-300 ease-in-out`}>
+        <div className={`xs:px-4 md:pl-10 md:pr-4 py-4 transition-shadow duration-300 ease-in-out`}>
           <h2 className="text-2xl font-semibold text-dark-blue dark:text-light-blue">{job.jobTitle}</h2>
           <div className="flex flex-col mt-4">
             <div className="text-sm">
