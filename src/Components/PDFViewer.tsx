@@ -177,7 +177,7 @@ function PDFViewer({ fileUrl, onClose }: { fileUrl: string; onClose: () => void 
 
         <div
           style={{
-            height: "90vh",
+            height: "auto",
             width: "80vw",
             margin: "60px auto"
           }}
