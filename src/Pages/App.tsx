@@ -93,7 +93,7 @@ function MainContent() {
         </div>
         <Footer />
       </div>
-      <Socials />
+      {!isTablet && !isMobile && <Socials />}
       <Notification />
       <GoToTopButton />
     </NotificationProvider>

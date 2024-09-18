@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
+import useDevice from "../hooks/useDevice";
 
 function GoToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
+  const isMobile = useDevice("mobile");
+  const isTablet = useDevice("tablet");
 
   useEffect(() => {
     handleScroll();
@@ -31,7 +34,7 @@ function GoToTopButton() {
     <div
       className={`go-to-top-button ${isVisible ? "visible" : "invisible"} ${
         isScrolling ? "scrolling" : ""
-      } fixed bottom-20 right-40 z-50 cursor-pointer`}
+      } fixed bottom-20 z-50 cursor-pointer ${isMobile || isTablet ? "right-14" : "right-40"}`}
       onClick={scrollToTop}
       onScroll={() => setIsScrolling(true)}
     >

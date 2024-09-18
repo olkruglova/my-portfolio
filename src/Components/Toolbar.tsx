@@ -39,13 +39,12 @@ function Toolbar() {
 
   return (
     <div className={`flex align-middle ${isMobile || isTablet ? "justify-between" : "justify-end"}`}>
-      {isMobile ||
-        (isTablet && (
-          <Bars3Icon
-            className="dark:text-light-blue text-dark-blue size-8 cursor-pointer"
-            onClick={() => setIsMenuOpened(true)}
-          />
-        ))}
+      {(isMobile || isTablet) && (
+        <Bars3Icon
+          className="dark:text-light-blue text-dark-blue size-8 cursor-pointer"
+          onClick={() => setIsMenuOpened(true)}
+        />
+      )}
       <ul className="flex flex-row text-light-blue-500 justify-end mb-10">
         <li className="items-center w-11 mr-3">
           <div
@@ -97,7 +96,10 @@ function Toolbar() {
         }}
       >
         <Navbar callback={() => setIsMenuOpened(false)} />
-        <XMarkIcon className="dark:text-light-blue text-dark-blue size-8" onClick={() => setIsMenuOpened(false)} />
+        <XMarkIcon
+          className="dark:text-light-blue text-dark-blue size-8 cursor-pointer"
+          onClick={() => setIsMenuOpened(false)}
+        />
       </div>
     </div>
   );

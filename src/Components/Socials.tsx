@@ -1,6 +1,7 @@
 import { faGithub, faLinkedin, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import useDevice from "../hooks/useDevice";
 
 function Socials() {
   const [iconsInView, setIconsInView] = useState<{ [key: string]: boolean }>({
@@ -8,6 +9,8 @@ function Socials() {
     linkedin: false,
     facebook: false
   });
+  const isMobile = useDevice("mobile");
+  const isTablet = useDevice("tablet");
 
   const socialItems = [
     {
@@ -55,7 +58,10 @@ function Socials() {
   }, []);
 
   return (
-    <div id="socials" className="flex flex-col fixed bottom-20 left-40 social z-50">
+    <div
+      id="socials"
+      className={`flex flex-col ${isMobile || isTablet ? "absolute left-14" : "fixed left-40"} bottom-20  social z-50`}
+    >
       {socialItems.map((item, index) => (
         <a
           key={index}

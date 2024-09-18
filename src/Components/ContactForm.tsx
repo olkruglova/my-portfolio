@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { sendEmail } from "../services/email.service";
 import { NotificationContext } from "../providers/NotificationContext";
 import { useTranslation } from "react-i18next";
+import useDevice from "../hooks/useDevice";
 
 interface ContactForm {
   title: string;
@@ -50,6 +51,8 @@ function ContactForm() {
   const [contactForm, setContactForm] = useState<ContactForm>(
     () => t("contactForm", { returnObjects: true }) as ContactForm
   );
+  const isMobile = useDevice("mobile");
+  const isTablet = useDevice("tablet");
 
   useEffect(() => {
     setContactForm(t("contactForm", { returnObjects: true }) as ContactForm);
@@ -87,7 +90,9 @@ function ContactForm() {
   };
 
   return (
-    <section className="flex flex-col w-[40rem] mr-40 pt-48">
+    <section
+      className={`flex flex-col ${isMobile ? "w-3/4 mx-auto" : isTablet ? "w-1/2 mx-auto" : "w-[40rem] mr-40"}  pt-48`}
+    >
       <h1 className="tracking-widest uppercase text-center text-3xl mb-4">{contactForm.title}</h1>
       <form ref={form} className="flex flex-col mt-8" onSubmit={send}>
         <FloatingLabelInput id="name" label={contactForm.name} name="user_name" />
